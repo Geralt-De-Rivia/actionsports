@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\New;
+use App\Models\NewModel;
 use App\Repositories\BaseRepository;
 
 /**
@@ -36,6 +36,6 @@ class NewRepository extends BaseRepository
      **/
     public function model()
     {
-        return New::class;
+        return NewModel::class;
     }
 }

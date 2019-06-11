@@ -14,6 +14,7 @@ class MachineKeysSeeder extends Seeder
         $key = new \App\Models\KeysModel();
         $key->label = 'Descripcion';
         $key->model = '\App\Models\MachineModel';
+        $key->reference = 'machines';
         $key->type = 'text';
         $key->save();
 
@@ -21,12 +22,14 @@ class MachineKeysSeeder extends Seeder
         $key = new \App\Models\KeysModel();
         $key->label = 'Imagen';
         $key->model = '\App\Models\MachineModel';
+        $key->reference = 'machines';
         $key->type = 'image';
         $key->save();
 
         $key = new \App\Models\KeysModel();
         $key->label = 'Link';
         $key->model = '\App\Models\MachineModel';
+        $key->reference = 'machines';
         $key->type = 'link';
         $key->save();
 

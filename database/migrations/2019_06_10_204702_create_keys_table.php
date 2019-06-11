@@ -18,6 +18,7 @@ class CreateKeysTable extends Migration
             $table->enum('type',['text','number','image','color','link']);
             $table->string('label');
             $table->string('model',300);
+            $table->string('reference',300);
             $table->timestamps();
         });
     }

@@ -2,8 +2,10 @@
 
 namespace App\Repositories;
 
+use Carbon\Carbon;
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 
 abstract class BaseRepository
@@ -43,12 +45,21 @@ abstract class BaseRepository
      */
     abstract public function model();
 
+
+    private function getKeys()
+    {
+
+        $keys = DB::table('keys')->where('model', '=', '\\' . $this->model->getMorphClass())->get();
+
+        return $keys;
+    }
+
     /**
      * Make Model instance
      *
+     * @return Model
      * @throws \Exception
      *
-     * @return Model
      */
     public function makeModel()
     {
@@ -88,7 +99,7 @@ abstract class BaseRepository
         $query = $this->model->newQuery();
 
         if (count($search)) {
-            foreach($search as $key => $value) {
+            foreach ($search as $key => $value) {
                 if (in_array($key, $this->getFieldsSearchable())) {
                     $query->where($key, $value);
                 }
@@ -120,7 +131,22 @@ abstract class BaseRepository
     {
         $query = $this->allQuery($search, $skip, $limit);
 
-        return $query->get($columns);
+        $collection = $query->get($columns);
+
+        if (!empty($collection)) {
+            foreach ($collection as &$item) {
+                $properties = DB::table('properties')
+                    ->join('keys', 'keys.id', '=', 'properties.key_id')
+                    ->select('keys.label', 'keys.type', 'properties.value')
+                    ->where('properties.model_id', '=', $item->id)
+                    ->where('keys.model', '=', '\\' . $this->model->getMorphClass())
+                    ->get();
+
+                $item->properties = $properties;
+            }
+        }
+
+        return $collection;
     }
 
     /**
@@ -135,6 +161,22 @@ abstract class BaseRepository
         $model = $this->model->newInstance($input);
 
         $model->save();
+
+        $keys = $this->getKeys();
+
+        foreach ($keys as $key) {
+            $id = 'property_' . $key->id;
+            if (isset($input[$id])) {
+                DB::table('properties')->insert(
+                    array(
+                        'key_id' => $key->id,
+                        'model_id' => $model->id,
+                        'value' => $input[$id],
+                        'created_at' => Carbon::now()
+                    )
+                );
+            }
+        }
 
         return $model;
     }
@@ -151,7 +193,23 @@ abstract class BaseRepository
     {
         $query = $this->model->newQuery();
 
-        return $query->find($id, $columns);
+        $model = $query->find($id, $columns);
+
+        if (!empty($model)) {
+
+            $properties = DB::table('properties')
+                ->join('keys', 'keys.id', '=', 'properties.key_id')
+                ->select('keys.id', 'keys.label', 'keys.type', 'properties.value')
+                ->where('properties.model_id', '=', $id)
+                ->where('keys.model', '=', '\\' . $this->model->getMorphClass())
+                ->get();
+            foreach ($properties as $property) {
+                $model->{'property_' . $property->id} = $property->value;
+            }
+            $model->properties = $properties;
+        }
+
+        return $model;
     }
 
     /**
@@ -172,21 +230,53 @@ abstract class BaseRepository
 
         $model->save();
 
+        $keys = $this->getKeys();
+
+        foreach ($keys as $key) {
+            DB::table('properties')
+                ->where('key_id', '=', $key->id)
+                ->where('model_id', '=', $id)
+                ->delete();
+        }
+
+        foreach ($keys as $key) {
+            $id = 'property_' . $key->id;
+            if (isset($input[$id])) {
+                DB::table('properties')->insert(
+                    array(
+                        'key_id' => $key->id,
+                        'model_id' => $model->id,
+                        'value' => $input[$id],
+                        'created_at' => Carbon::now()
+                    )
+                );
+            }
+        }
+
         return $model;
     }
 
     /**
      * @param int $id
      *
+     * @return bool|mixed|null
      * @throws \Exception
      *
-     * @return bool|mixed|null
      */
     public function delete($id)
     {
         $query = $this->model->newQuery();
 
         $model = $query->findOrFail($id);
+
+        $keys = $this->getKeys();
+
+        foreach ($keys as $key) {
+            DB::table('properties')
+                ->where('key_id', '=', $key->id)
+                ->where('model_id', '=', $id)
+                ->delete();
+        }
 
         return $model->delete();
     }

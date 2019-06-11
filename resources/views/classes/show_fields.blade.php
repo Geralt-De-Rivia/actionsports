@@ -46,3 +46,5 @@
     <p>{!! $class->updated_at !!}</p>
 </div>
 
+{{$class->properties}}
+

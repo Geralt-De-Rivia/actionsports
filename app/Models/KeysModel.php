@@ -51,6 +51,7 @@ class KeysModel extends Model
     public $fillable = [
         'label',
         'model',
+        'reference',
         'type'
     ];
 

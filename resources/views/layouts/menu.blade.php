@@ -30,3 +30,7 @@
     <a href="{!! route('classTypes.index') !!}"><i class="fa fa-edit"></i><span>Class Types</span></a>
 </li>
 
+<li class="{{ Request::is('classSchedules*') ? 'active' : '' }}">
+    <a href="{!! route('classSchedules.index') !!}"><i class="fa fa-edit"></i><span>Class Schedules</span></a>
+</li>
+

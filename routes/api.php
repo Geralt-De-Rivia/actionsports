@@ -43,3 +43,5 @@ Route::resource('routine_clients', 'RoutineClientAPIController');
 Route::resource('users', 'UserAPIController');
 
 Route::resource('class_types', 'ClassTypeAPIController');
+
+Route::resource('class_schedules', 'ClassScheduleAPIController');

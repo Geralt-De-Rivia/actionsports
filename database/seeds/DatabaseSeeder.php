@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ClassTypeSeeder::class);
         $this->call(MachineKeysSeeder::class);
         $this->call(NewKeysSeeder::class);
+        $this->call(ClassKeysSeeder::class);
         $this->call(UserSeeder::class);
 
     }

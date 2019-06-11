@@ -39,3 +39,5 @@ Route::resource('routines', 'RoutineController');
 Route::resource('users', 'UserController');
 
 Route::resource('classTypes', 'ClassTypeController');
+
+Route::resource('classSchedules', 'ClassScheduleController');
