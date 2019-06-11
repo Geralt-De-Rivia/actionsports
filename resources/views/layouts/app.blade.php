@@ -20,6 +20,16 @@
     <link href="{{asset('demo/demo.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{asset('css/glyphicons.css')}}/">
     @yield('css')
+    <style>
+        .alert{
+            list-style-type: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            width: 100vw;
+        }
+    </style>
 </head>
 
 <body>

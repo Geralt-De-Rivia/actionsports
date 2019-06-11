@@ -4,7 +4,7 @@
 namespace App\Http\ViewComposers;
 
 
-use App\Models\KeysModel;
+use App\Models\KeyModel;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
@@ -20,7 +20,7 @@ class FieldComposer
     {
         $name = $this->normalize($view->getName());
 
-        $keys = KeysModel::where('reference','=',$name)->get();
+        $keys = KeyModel::where('reference','=',$name)->get();
 
         $view->with('extraFields', $keys);
     }
