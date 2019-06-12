@@ -11,7 +11,7 @@ class NewKeysSeeder extends Seeder
      */
     public function run()
     {
-        $key = new \App\Models\KeysModel();
+        $key = new \App\Models\KeyModel();
         $key->label = 'Descripcion';
         $key->model = '\App\Models\NewModel';
         $key->reference = 'news';
@@ -19,14 +19,14 @@ class NewKeysSeeder extends Seeder
         $key->save();
 
 
-        $key = new \App\Models\KeysModel();
+        $key = new \App\Models\KeyModel();
         $key->label = 'Imagen';
         $key->model = '\App\Models\NewModel';
         $key->reference = 'news';
         $key->type = 'image';
         $key->save();
 
-        $key = new \App\Models\KeysModel();
+        $key = new \App\Models\KeyModel();
         $key->label = 'Link';
         $key->model = '\App\Models\NewModel';
         $key->reference = 'news';
