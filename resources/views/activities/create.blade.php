@@ -1,21 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <h1>
-            Activity
-        </h1>
-    </section>
-    <div class="content">
-        @include('adminlte-templates::common.errors')
-        <div class="box box-primary">
-
-            <div class="box-body">
-                <div class="row">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-user">
+                <div class="card-header">
+                    <h5 class="card-title">Crear Actividades</h5>
+                </div>
+                <div class="card-body">
                     {!! Form::open(['route' => 'activities.store']) !!}
-
+                    <div class="row">
                         @include('activities.fields')
-
+                    </div>
                     {!! Form::close() !!}
                 </div>
             </div>

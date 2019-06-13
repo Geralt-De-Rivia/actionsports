@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\ClassDataTable;
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests;
 use App\Http\Requests\CreateClassRequest;
 use App\Http\Requests\UpdateClassRequest;
 use App\Repositories\ClassRepository;
 use Flash;
-use App\Http\Controllers\AppBaseController;
-use Response;
+use Illuminate\Support\Facades\Response;
 
 class ClassController extends AppBaseController
 {
@@ -39,7 +39,9 @@ class ClassController extends AppBaseController
      */
     public function create()
     {
-        return view('classes.create');
+        return view('classes.create')->with([
+            'tipo' => \App\Models\ClassTypeModel::pluck('name','id')->toArray(), 
+        ]);
     }
 
     /**
@@ -97,7 +99,11 @@ class ClassController extends AppBaseController
             return redirect(route('classes.index'));
         }
 
-        return view('classes.edit')->with('class', $class);
+       // return Response::json($class,200,[],JSON_PRETTY_PRINT);
+
+        return view('classes.edit')->with(
+            'class', $class,
+        )->with('tipo',\App\Models\ClassTypeModel::pluck('name','id')->toArray());
     }
 
     /**

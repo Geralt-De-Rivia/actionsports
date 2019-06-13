@@ -1,23 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <h1>
-            Class Schedule
-        </h1>
-   </section>
-   <div class="content">
-       @include('adminlte-templates::common.errors')
-       <div class="box box-primary">
-           <div class="box-body">
-               <div class="row">
-                   {!! Form::model($classSchedule, ['route' => ['classSchedules.update', $classSchedule->id], 'method' => 'patch']) !!}
-
-                        @include('class_schedules.fields')
-
-                   {!! Form::close() !!}
-               </div>
-           </div>
-       </div>
-   </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-user">
+                <div class="card-header">
+                    <h5 class="card-title">Actualizar Horario de Clase</h5>
+                </div>
+                <div class="card-body">
+                    {!! Form::model($classSchedule, ['route' => ['classSchedules.update', $classSchedule->id], 'method' => 'patch']) !!}
+                    <div class="row">
+                        @include('classSchedules.fields')
+                    </div>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
