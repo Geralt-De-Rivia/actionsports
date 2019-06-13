@@ -40,6 +40,6 @@ Route::resource('users', 'UserController');
 
 Route::resource('classTypes', 'ClassTypeController');
 
-Route::resource('classSchedules', 'ClassScheduleController');
+Route::resource('class_schedules', 'ClassScheduleController');
 
 Route::resource('keys', 'KeyController');

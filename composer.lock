@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4877d59118ce9678370816351f24eeab",
+    "content-hash": "065c04619ebe451c18ec15685e474fb8",
     "packages": [
         {
             "name": "appointer/swaggervel",

@@ -30,8 +30,8 @@
     <a href="{!! route('classTypes.index') !!}"><i class="fa fa-edit"></i><span>Tipos de clase</span></a>
 </li>
 
-<li class="{{ Request::is('classSchedules*') ? 'active' : '' }}">
-    <a href="{!! route('classSchedules.index') !!}"><i class="fa fa-edit"></i><span>Horarios de clase</span></a>
+<li class="{{ Request::is('class_schedules*') ? 'active' : '' }}">
+    <a href="{!! route('class_schedules.index') !!}"><i class="fa fa-edit"></i><span>Horarios de clase</span></a>
 </li>
 
 <li class="{{ Request::is('keys*') ? 'active' : '' }}">

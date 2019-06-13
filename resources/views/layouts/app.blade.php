@@ -48,7 +48,7 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="#pablo">Paper Dashboard 2</a>
+                    <a class="navbar-brand" href="#pablo">Action Sport Administrador</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -140,7 +140,7 @@
         </footer>
     </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="{{asset('js/core/jquery.min.js')}}"></script>
 <script src="{{asset('js/core/popper.min.js')}}"></script>
 <script src="{{asset('js/core/bootstrap.min.js')}}"></script>
@@ -149,7 +149,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <script src="{{asset('js/plugins/chartjs.min.js')}}"></script>
 <script src="{{asset('js/plugins/bootstrap-notify.js')}}"></script>
-<script src="{{asset('js/paper-dashboard.min.js?v=2.0.0')}}" type="text/javascript"></script>
+<script src="{{asset('js/paper-dashboard.js')}}" type="text/javascript"></script>
 
 
 @yield('scripts')

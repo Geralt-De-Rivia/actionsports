@@ -18,7 +18,10 @@ class ClassDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'classes.datatables_actions');
+        return $dataTable->addColumn('action', 'classes.datatables_actions')
+            ->addColumn('status', 'classes.extends.status')
+            ->addColumn('reservable', 'classes.extends.reservable')
+            ->rawColumns( [ 'status', 'action','reservable' ] );
     }
 
     /**
@@ -29,7 +32,9 @@ class ClassDataTable extends DataTable
      */
     public function query(ClassModel $model)
     {
-        return $model->newQuery();
+        return $model
+            ->with('classType')
+            ->newQuery();
     }
 
     /**
@@ -70,7 +75,7 @@ class ClassDataTable extends DataTable
             'minutes',
             'status',
             'reservable',
-            'class_type_id'
+            ['title' => 'Tipo', 'data' => 'class_type.name']
         ];
     }
 

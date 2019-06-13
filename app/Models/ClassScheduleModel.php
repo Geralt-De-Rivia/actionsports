@@ -124,7 +124,6 @@ class ClassScheduleModel extends Model
         'quota_max' => 'required',
         'start_at' => 'required',
         'status' => 'required',
-        'recurrence' => 'required'
     ];
 
     /**
@@ -156,6 +155,6 @@ class ClassScheduleModel extends Model
      **/
     public function classScheduleRecurrences()
     {
-        return $this->hasMany(\App\Models\ClassScheduleRecurrenceModel::class);
+        return $this->hasMany(\App\Models\ClassScheduleRecurrenceModel::class,'class_schedule_id','id');
     }
 }

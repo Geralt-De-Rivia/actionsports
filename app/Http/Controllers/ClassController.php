@@ -7,6 +7,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Http\Requests;
 use App\Http\Requests\CreateClassRequest;
 use App\Http\Requests\UpdateClassRequest;
+use App\Models\ClassTypeModel;
 use App\Repositories\ClassRepository;
 use Flash;
 use Illuminate\Support\Facades\Response;
@@ -39,9 +40,10 @@ class ClassController extends AppBaseController
      */
     public function create()
     {
-        return view('classes.create')->with([
-            'tipo' => \App\Models\ClassTypeModel::pluck('name','id')->toArray(), 
-        ]);
+        $types = ClassTypeModel::all()->pluck('name','id');
+
+        return view('classes.create')
+            ->with('types', $types);
     }
 
     /**
@@ -99,11 +101,11 @@ class ClassController extends AppBaseController
             return redirect(route('classes.index'));
         }
 
-       // return Response::json($class,200,[],JSON_PRETTY_PRINT);
+        $types = ClassTypeModel::all()->pluck('name','id');
 
         return view('classes.edit')->with(
-            'class', $class,
-        )->with('tipo',\App\Models\ClassTypeModel::pluck('name','id')->toArray());
+            'class', $class
+        )->with('types',$types);
     }
 
     /**

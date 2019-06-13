@@ -31,7 +31,7 @@
 <!-- Class Type Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('class_type_id', 'Tipo:') !!}
-    {!! Form::select('class_type_id',$tipo ?? [], $class->class_type_id ?? null,['class'=>'form-control']) !!}
+    {!! Form::select('class_type_id',$types ?? [], $class->class_type_id ?? null,['class'=>'form-control']) !!}
    
 </div>
 

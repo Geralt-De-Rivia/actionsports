@@ -6,9 +6,13 @@ use App\DataTables\ClassScheduleDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateClassScheduleRequest;
 use App\Http\Requests\UpdateClassScheduleRequest;
+use App\Infrastructure\Repositories\Criterias\WithRelationshipsCriteria;
+use App\Models\ClassModel;
+use App\Models\UserModel;
 use App\Repositories\ClassScheduleRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\View;
 use Response;
 
 class ClassScheduleController extends AppBaseController
@@ -19,6 +23,8 @@ class ClassScheduleController extends AppBaseController
     public function __construct(ClassScheduleRepository $classScheduleRepo)
     {
         $this->classScheduleRepository = $classScheduleRepo;
+        View::share('classes', ClassModel::all()->pluck('name','id'));
+        View::share('teachers', UserModel::where('role_id','=',2)->get()->pluck('name','id'));
     }
 
     /**
@@ -89,6 +95,8 @@ class ClassScheduleController extends AppBaseController
      */
     public function edit($id)
     {
+        $this->classScheduleRepository->pushCriteria(new WithRelationshipsCriteria(['classScheduleRecurrences']));
+
         $classSchedule = $this->classScheduleRepository->find($id);
 
         if (empty($classSchedule)) {

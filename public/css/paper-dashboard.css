@@ -3043,11 +3043,15 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 }
 
 .navbar.navbar-transparent {
-  background-color: transparent !important;
+  background-color: rgba(0,0,0,0.3); !important;
   box-shadow: none;
   border-bottom: 1px solid #ddd;
 }
 
+.navbar.navbar-transparent .navbar-brand{
+  color: #fffceb !important;
+  font-weight: bold;
+}
 .navbar.navbar-transparent a:not(.dropdown-item):not(.btn) {
   color: #66615B;
 }
@@ -6429,3 +6433,27 @@ License - nucleoapp.com/license/
 }
 
 /*# sourceMappingURL=dashboard-free.css.map */
+
+
+.sidebar[data-color="white"]:after, .off-canvas-sidebar[data-color="white"]:after{
+  background: linear-gradient(180deg, rgba(18, 7, 25, 0.6), rgba(13, 9, 31, 0.6)), url('/img/bg2.jpg');
+  background-size: cover;
+  background-position: center;
+
+}
+
+
+.sidebar a,.simple-text{
+  color: #ffff !important;
+  opacity: 1 !important;
+  font-weight: bold;
+}
+.sidebar i{
+  color: #ffff !important;
+  opacity: 1 !important;
+  font-weight: bold;
+}
+.sidebar-wrapper{
+  overflow: hidden !important;
+  background-color: rgba(0,0,0,0.5) !important;
+}

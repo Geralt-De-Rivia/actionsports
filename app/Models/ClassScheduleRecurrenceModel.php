@@ -63,7 +63,7 @@ class ClassScheduleRecurrenceModel extends Model
     protected $casts = [
         'id' => 'integer',
         'class_schedule_id' => 'integer',
-        'day' => 'boolean'
+        'day' => 'integer'
     ];
 
     /**

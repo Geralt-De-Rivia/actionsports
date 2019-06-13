@@ -194,3 +194,27 @@ function hexToRGB(hex, alpha) {
     return "rgb(" + r + ", " + g + ", " + b + ")";
   }
 }
+
+
+
+var createScheduleClass = new Vue({
+  el: '#recurrenceScheduleClass',
+  data: {
+    recurrences:  [],
+    message: 'Hello Vue!'
+  },
+  mounted() {
+    if(window.recurrences){
+      this.recurrences = window.recurrences;
+      console.log(this.recurrences);
+    }
+  },
+  methods: {
+    addDay(){
+      this.recurrences.push({
+        day: null,
+        start_time: null
+      })
+    }
+  }
+});

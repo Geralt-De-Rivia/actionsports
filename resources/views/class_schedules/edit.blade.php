@@ -8,9 +8,9 @@
                     <h5 class="card-title">Actualizar Horario de Clase</h5>
                 </div>
                 <div class="card-body">
-                    {!! Form::model($classSchedule, ['route' => ['classSchedules.update', $classSchedule->id], 'method' => 'patch']) !!}
+                    {!! Form::model($classSchedule, ['route' => ['class_schedules.update', $classSchedule->id], 'method' => 'patch']) !!}
                     <div class="row">
-                        @include('classSchedules.fields')
+                        @include('class_schedules.fields')
                     </div>
                     {!! Form::close() !!}
                 </div>

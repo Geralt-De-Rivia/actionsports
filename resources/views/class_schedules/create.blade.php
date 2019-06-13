@@ -8,9 +8,9 @@
                     <h5 class="card-title">Crear Horario de Clase</h5>
                 </div>
                 <div class="card-body">
-                    {!! Form::open(['route' => 'classSchedules.store']) !!}
+                    {!! Form::open(['route' => 'class_schedules.store']) !!}
                     <div class="row">
-                        @include('classSchedules.fields')
+                        @include('class_schedules.fields')
                     </div>
                     {!! Form::close() !!}
                 </div>

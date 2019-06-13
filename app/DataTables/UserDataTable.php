@@ -29,7 +29,9 @@ class UserDataTable extends DataTable
      */
     public function query(UserModel $model)
     {
-        return $model->newQuery();
+        return $model
+            ->with('role')
+            ->newQuery();
     }
 
     /**
@@ -68,11 +70,8 @@ class UserDataTable extends DataTable
         return [
             'name',
             'email',
-            'email_verified_at',
-            'password',
-            'role_id',
+            [ 'title' => 'Rol', 'data' => 'role.name'],
             'status',
-            'remember_token'
         ];
     }
 
