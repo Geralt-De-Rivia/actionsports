@@ -44,6 +44,7 @@ class RoutineDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
+                'language' => [ 'url' => url( '/lang/Spanish.json' ) ],
                 'dom'       => 'Bfrtip',
                 'stateSave' => true,
                 'order'     => [[0, 'desc']],
