@@ -55,7 +55,7 @@ class ClassTypeController extends AppBaseController
 
         $classType = $this->classTypeRepository->create($input);
 
-        Flash::success('Class Type saved successfully.');
+        Flash::success('Tipo de Clase Guardada Satisfactoriamente.');
 
         return redirect(route('classTypes.index'));
     }

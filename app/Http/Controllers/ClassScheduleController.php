@@ -55,7 +55,7 @@ class ClassScheduleController extends AppBaseController
 
         $classSchedule = $this->classScheduleRepository->create($input);
 
-        Flash::success('Class Schedule saved successfully.');
+        Flash::success('Horario de Clase Guardada Satisfactoriamente.');
 
         return redirect(route('classSchedules.index'));
     }

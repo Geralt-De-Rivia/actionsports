@@ -55,7 +55,7 @@ class KeyController extends AppBaseController
 
         $key = $this->keyRepository->create($input);
 
-        Flash::success('Key saved successfully.');
+        Flash::success('Llve Guardada Satisfactoriamente.');
 
         return redirect(route('keys.index'));
     }

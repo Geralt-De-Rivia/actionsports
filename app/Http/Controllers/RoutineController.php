@@ -55,7 +55,7 @@ class RoutineController extends AppBaseController
 
         $routine = $this->routineRepository->create($input);
 
-        Flash::success('RoutineModel saved successfully.');
+        Flash::success('Rutina Guardada Satisfactoriamente.');
 
         return redirect(route('routines.index'));
     }

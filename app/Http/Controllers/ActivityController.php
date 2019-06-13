@@ -55,7 +55,7 @@ class ActivityController extends AppBaseController
 
         $activity = $this->activityRepository->create($input);
 
-        Flash::success('Activity saved successfully.');
+        Flash::success('Actividad Guardada Satisfactoriamente.');
 
         return redirect(route('activities.index'));
     }

@@ -55,7 +55,7 @@ class NewController extends AppBaseController
 
         $new = $this->newRepository->create($input);
 
-        Flash::success('New saved successfully.');
+        Flash::success('Noticia Guardad Satisfactoriamente.');
 
         return redirect(route('news.index'));
     }

@@ -55,7 +55,7 @@ class MachineController extends AppBaseController
 
         $machine = $this->machineRepository->create($input);
 
-        Flash::success('MachineModel saved successfully.');
+        Flash::success('Máquina Guardad Satisfactoriamente.');
 
         return redirect(route('machines.index'));
     }
