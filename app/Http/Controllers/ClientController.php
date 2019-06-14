@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\ClientDataTable;
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests;
 use App\Http\Requests\CreateClientRequest;
 use App\Http\Requests\UpdateClientRequest;
+use App\Models\ClientStatusModel;
 use App\Repositories\ClientRepository;
 use Flash;
-use App\Http\Controllers\AppBaseController;
 use Response;
 
 class ClientController extends AppBaseController
@@ -39,7 +40,9 @@ class ClientController extends AppBaseController
      */
     public function create()
     {
-        return view('clients.create');
+        $status = ClientStatusModel::all()->pluck('name','id');
+        return view('clients.create')
+        ->with('status', $status);
     }
 
     /**
@@ -96,8 +99,10 @@ class ClientController extends AppBaseController
 
             return redirect(route('clients.index'));
         }
+        $status = ClientStatusModel::all()->pluck('name','id');
 
-        return view('clients.edit')->with('client', $client);
+        return view('clients.edit')->with('client', $client)
+                ->with('status', $status);
     }
 
     /**

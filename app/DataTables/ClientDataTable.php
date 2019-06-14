@@ -72,12 +72,12 @@ class ClientDataTable extends DataTable
             'phone_number',
             'email',
             'code',
-            'image_url',
+            //'image_url',
             'membership_number',
-            'client_status_id',
-            'birth_date',
-            'email_verified_at',
-            'password'
+            'client_status_id'//,
+            //'birth_date',
+            //'email_verified_at',
+            //'password'
         ];
     }
 

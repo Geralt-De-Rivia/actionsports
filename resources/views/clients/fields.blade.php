@@ -49,7 +49,7 @@
 <!-- Client Status Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('client_status_id', 'Client Status Id:') !!}
-    {!! Form::number('client_status_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('client_status_id',$status ?? [], $clients->client_status_id ?? null,['class'=>'form-control']) !!}  
 </div>
 
 <!-- Birth Date Field -->

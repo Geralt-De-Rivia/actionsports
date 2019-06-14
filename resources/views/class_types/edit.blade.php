@@ -8,7 +8,7 @@
                     <h5 class="card-title">Actualizar Tipo de Clase</h5>
                 </div>
                 <div class="card-body">
-                    {!! Form::model($classType, ['route' => ['class_types.update', $classType->id], 'method' => 'patch']) !!}
+                    {!! Form::model($classType, ['route' => ['classTypes.update', $classType->id], 'method' => 'patch']) !!}
                     <div class="row">
                         @include('class_types.fields')
                     </div>

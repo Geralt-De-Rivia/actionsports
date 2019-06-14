@@ -59,7 +59,7 @@ class ClassController extends AppBaseController
 
         $class = $this->classRepository->create($input);
 
-        Flash::success('Clase Guardad Satisfactoriamente.');
+        Flash::success('Clase Guardada Satisfactoriamente.');
 
         return redirect(route('classes.index'));
     }
