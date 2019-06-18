@@ -13,19 +13,29 @@
 <!-- Status Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('status', 'Status:') !!}
-    <label class="checkbox-inline">
-        {!! Form::hidden('status', 0) !!}
-        {!! Form::checkbox('status', '1', null) !!} 1
-    </label>
+    <div class="form-check">
+        <label class="form-check-label">
+            {!! Form::hidden('status', 0) !!}
+            {!! Form::checkbox('status', '1', null) !!} 1
+            <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+    </div>
 </div>
 
 <!-- Reservable Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('reservable', 'Reservable:') !!}
-    <label class="checkbox-inline">
-        {!! Form::hidden('reservable', 0) !!}
-        {!! Form::checkbox('reservable', '1', null) !!} 1
-    </label>
+    <div class="form-check">
+        <label class="form-check-label">
+            {!! Form::hidden('reservable', 0) !!}
+            {!! Form::checkbox('reservable', '1', null) !!} 1
+            <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+    </div>
 </div>
 
 <!-- Class Type Id Field -->
