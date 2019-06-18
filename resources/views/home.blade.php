@@ -111,11 +111,11 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title">Users Behavior</h5>
-                    <p class="card-category">24 Hours performance</p>
+                    <h5 class="card-title">Calendario</h5>
+                    <p class="card-category">Horarios</p>
                 </div>
                 <div class="card-body ">
-                    <canvas id=chartHours width="400" height="100"></canvas>
+                    <div class="calendar" id="calendar"></div>
                 </div>
                 <div class="card-footer ">
                     <hr>
@@ -172,4 +172,39 @@
             </div>
         </div>
     </div>
+@endsection
+
+
+
+@section('scripts')
+<script type="text/javascript">
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            var url = '{{ env('APP_URL') }}';
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                events: {
+                url: '{{ env('APP_URL') }}api/calendar',
+                method: 'GET',
+                extraParams: {
+                  month: '6',
+                  year: '2019'
+                },
+                failure: function() {
+                  alert('there was an error while fetching events!');
+                },
+                color: 'yellow',   // a non-ajax option
+                textColor: 'black' // a non-ajax option
+              },
+              plugins: [ 'dayGrid' ]
+            });
+
+            calendar.render();
+        });
+
+    
+    </script>
+    
 @endsection

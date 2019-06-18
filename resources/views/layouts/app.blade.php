@@ -17,6 +17,8 @@
     <!-- CSS Files -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet"/>
     <link href="{{asset('css/paper-dashboard.css?v=2.0.0')}}" rel="stylesheet"/>
+    <link href="{{asset('fullcalendar/packages/core/main.css')}}" rel="stylesheet"/>
+    <link href="{{asset('fullcalendar/packages/daygrid/main.css')}}" rel="stylesheet"/>
     <link href="{{asset('demo/demo.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{asset('css/glyphicons.css')}}/">
     @yield('css')
@@ -150,6 +152,23 @@
 <script src="{{asset('js/plugins/chartjs.min.js')}}"></script>
 <script src="{{asset('js/plugins/bootstrap-notify.js')}}"></script>
 <script src="{{asset('js/paper-dashboard.js')}}" type="text/javascript"></script>
+<script src="{{asset('fullcalendar/packages/core/main.js')}}" type="text/javascript"></script>
+<script src="{{asset('fullcalendar/packages/daygrid/main.js')}}" type="text/javascript"></script>
+
+<script type="text/javascript">
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+              plugins: [ 'dayGrid' ]
+            });
+
+            calendar.render();
+        });
+
+    
+    </script>
 
 
 @yield('scripts')
