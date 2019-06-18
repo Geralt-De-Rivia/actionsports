@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @SWG\Definition(
@@ -114,5 +115,16 @@ class ClassModel extends Model
     public function classSchedules()
     {
         return $this->hasMany(\App\Models\ClassScheduleModel::class);
+    }
+
+    public function properties(){
+        $properties = DB::table('properties')
+            ->join('keys', 'keys.id', '=', 'properties.key_id')
+            ->select('keys.label', 'keys.type', 'properties.value')
+            ->where('properties.model_id', '=', $this->id)
+            ->where('keys.model', '=', '\\' . $this->getMorphClass())
+            ->get();
+
+        return $properties;
     }
 }

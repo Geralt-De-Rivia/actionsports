@@ -19,8 +19,14 @@ class CalendarAPIController extends AppBaseController
         $end = $input['end'];
         $service = new ClassesService();
 
-       	return Response::json($service->buildClasses($start, $end));
+        return Response::json($service->buildClasses($start, $end));
         //return $this->sendResponse($service->buildClasses($month, $year), 'Ok');
+    }
+
+    public function next()
+    {
+        $service = new ClassesService();
+        return $this->sendResponse($service->nextClass(), 'Ok');
     }
 
 }

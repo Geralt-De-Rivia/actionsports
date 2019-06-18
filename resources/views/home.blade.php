@@ -182,11 +182,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
 
-            var url = '{{ env('APP_URL') }}';
+
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 events: {
-                url: '{{ env('APP_URL') }}api/calendar',
+                url: '/api/calendar',
                 method: 'GET',
                 failure: function() {
                   alert('there was an error while fetching events!');

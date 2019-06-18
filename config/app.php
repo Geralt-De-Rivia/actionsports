@@ -184,6 +184,7 @@ return [
         Yajra\DataTables\ButtonsServiceProvider::class,
         \App\Providers\ViewServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
