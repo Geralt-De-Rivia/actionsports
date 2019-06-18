@@ -13,14 +13,16 @@ class MachineKeysSeeder extends Seeder
     {
         $key = new \App\Models\KeyModel();
         $key->label = 'Descripcion';
+        $key->key = 'description';
         $key->model = '\App\Models\MachineModel';
         $key->reference = 'machines';
-        $key->type = 'text';
+        $key->type = 'textarea';
         $key->save();
 
 
         $key = new \App\Models\KeyModel();
-        $key->label = 'Imagen';
+        $key->label = 'Url Imagén';
+        $key->key = 'imagen';
         $key->model = '\App\Models\MachineModel';
         $key->reference = 'machines';
         $key->type = 'image';
@@ -28,9 +30,34 @@ class MachineKeysSeeder extends Seeder
 
         $key = new \App\Models\KeyModel();
         $key->label = 'Link';
+        $key->key = 'link';
         $key->model = '\App\Models\MachineModel';
         $key->reference = 'machines';
         $key->type = 'link';
+        $key->save();
+
+        $key = new \App\Models\KeyModel();
+        $key->label = 'Item 1';
+        $key->key = 'item1';
+        $key->model = '\App\Models\MachineModel';
+        $key->reference = 'machines';
+        $key->type = 'text';
+        $key->save();
+
+        $key = new \App\Models\KeyModel();
+        $key->label = 'Item 2';
+        $key->key = 'item2';
+        $key->model = '\App\Models\MachineModel';
+        $key->reference = 'machines';
+        $key->type = 'text';
+        $key->save();
+
+        $key = new \App\Models\KeyModel();
+        $key->label = 'Item 3';
+        $key->key = 'item3';
+        $key->model = '\App\Models\MachineModel';
+        $key->reference = 'machines';
+        $key->type = 'text';
         $key->save();
 
 

@@ -117,14 +117,4 @@ class ClassModel extends Model
         return $this->hasMany(\App\Models\ClassScheduleModel::class);
     }
 
-    public function properties(){
-        $properties = DB::table('properties')
-            ->join('keys', 'keys.id', '=', 'properties.key_id')
-            ->select('keys.label', 'keys.type', 'properties.value')
-            ->where('properties.model_id', '=', $this->id)
-            ->where('keys.model', '=', '\\' . $this->getMorphClass())
-            ->get();
-
-        return $properties;
-    }
 }

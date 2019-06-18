@@ -29,4 +29,10 @@ class CalendarAPIController extends AppBaseController
         return $this->sendResponse($service->nextClass(), 'Ok');
     }
 
+    public function week()
+    {
+        $service = new ClassesService();
+        return $this->sendResponse($service->classWeek(), 'Ok');
+    }
+
 }

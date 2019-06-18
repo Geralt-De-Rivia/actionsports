@@ -137,12 +137,14 @@ abstract class BaseRepository
             foreach ($collection as &$item) {
                 $properties = DB::table('properties')
                     ->join('keys', 'keys.id', '=', 'properties.key_id')
-                    ->select('keys.label', 'keys.type', 'properties.value')
+                    ->select('keys.label', 'keys.type','keys.key', 'properties.value')
                     ->where('properties.model_id', '=', $item->id)
                     ->where('keys.model', '=', '\\' . $this->model->getMorphClass())
                     ->get();
 
-                $item->properties = $properties;
+                foreach ($properties as $property) {
+                    $item->{$property->key} = $property->value;
+                }
             }
         }
 
@@ -199,14 +201,15 @@ abstract class BaseRepository
 
             $properties = DB::table('properties')
                 ->join('keys', 'keys.id', '=', 'properties.key_id')
-                ->select('keys.id', 'keys.label', 'keys.type', 'properties.value')
+                ->select('keys.id', 'keys.label', 'keys.key', 'keys.type', 'properties.value')
                 ->where('properties.model_id', '=', $id)
                 ->where('keys.model', '=', '\\' . $this->model->getMorphClass())
                 ->get();
             foreach ($properties as $property) {
+                $model->{$property->key} = $property->value;
                 $model->{'property_' . $property->id} = $property->value;
             }
-            $model->properties = $properties;
+            //$model->properties = $properties;
         }
 
         return $model;

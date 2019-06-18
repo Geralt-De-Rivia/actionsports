@@ -15,7 +15,7 @@ class CreateKeysTable extends Migration
     {
         Schema::create('keys', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('type',['text','number','image','color','link']);
+            $table->enum('type',['text','number','image','color','link','textarea']);
             $table->string('label');
             $table->string('model',300);
             $table->string('reference',300);

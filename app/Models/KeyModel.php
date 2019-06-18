@@ -107,7 +107,8 @@ class KeyModel extends Model
         'type',
         'label',
         'model',
-        'reference'
+        'reference',
+        'key'
     ];
 
     /**
@@ -118,6 +119,7 @@ class KeyModel extends Model
     protected $casts = [
         'id' => 'integer',
         'type' => 'string',
+        'key' => 'string',
         'label' => 'string',
         'model' => 'string',
         'reference' => 'string'

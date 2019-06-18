@@ -49,3 +49,6 @@ Route::resource('class_schedules', 'ClassScheduleAPIController');
 Route::get('calendar', 'CalendarAPIController@index');
 
 Route::get('calendar/next', 'CalendarAPIController@next');
+
+Route::get('calendar/week', 'CalendarAPIController@week');
+

@@ -13,6 +13,7 @@ class NewKeysSeeder extends Seeder
     {
         $key = new \App\Models\KeyModel();
         $key->label = 'Descripcion';
+        $key->key = 'description';
         $key->model = '\App\Models\NewModel';
         $key->reference = 'news';
         $key->type = 'text';
@@ -21,6 +22,7 @@ class NewKeysSeeder extends Seeder
 
         $key = new \App\Models\KeyModel();
         $key->label = 'Imagen';
+        $key->key = 'image';
         $key->model = '\App\Models\NewModel';
         $key->reference = 'news';
         $key->type = 'image';
@@ -28,6 +30,7 @@ class NewKeysSeeder extends Seeder
 
         $key = new \App\Models\KeyModel();
         $key->label = 'Link';
+        $key->key = 'link';
         $key->model = '\App\Models\NewModel';
         $key->reference = 'news';
         $key->type = 'link';

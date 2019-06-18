@@ -12,14 +12,24 @@ class ActivityKeysSeeder extends Seeder
     public function run()
     {
         $key = new \App\Models\KeyModel();
-        $key->label = 'Cantidad de ejercicio';
+        $key->label = 'Cantidad';
+        $key->key = 'quantity';
         $key->model = '\App\Models\ActivityModel';
         $key->reference = 'activities';
-        $key->type = 'text';
+        $key->type = 'number';
         $key->save();
 
         $key = new \App\Models\KeyModel();
-        $key->label = 'Kg Fuerza';
+        $key->label = 'Repeticiones';
+        $key->key = 'repetitions';
+        $key->model = '\App\Models\ActivityModel';
+        $key->reference = 'activities';
+        $key->type = 'number';
+        $key->save();
+
+        $key = new \App\Models\KeyModel();
+        $key->label = 'Kg / Fuerza ';
+        $key->key = 'force';
         $key->model = '\App\Models\ActivityModel';
         $key->reference = 'activities';
         $key->type = 'text';
@@ -27,27 +37,31 @@ class ActivityKeysSeeder extends Seeder
 
         $key = new \App\Models\KeyModel();
         $key->label = 'Calorias';
+        $key->key = 'calories';
         $key->model = '\App\Models\ActivityModel';
         $key->reference = 'activities';
-        $key->type = 'text';
+        $key->type = 'number';
         $key->save();
 
         $key = new \App\Models\KeyModel();
-        $key->label = 'Duración Aproximada';
+        $key->label = 'Duración Aproximada (min)';
+        $key->key = 'duration';
         $key->model = '\App\Models\ActivityModel';
         $key->reference = 'activities';
-        $key->type = 'text';
+        $key->type = 'number';
         $key->save();
 
         $key = new \App\Models\KeyModel();
         $key->label = 'Dificultad';
+        $key->key = 'difficulty';
         $key->model = '\App\Models\ActivityModel';
         $key->reference = 'activities';
         $key->type = 'text';
         $key->save();
 
         $key = new \App\Models\KeyModel();
-        $key->label = 'Imagen 1';
+        $key->label = 'Url Imagen';
+        $key->key = 'image';
         $key->model = '\App\Models\ActivityModel';
         $key->reference = 'activities';
         $key->type = 'image';

@@ -3,7 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="2dcb82ae-cd69-49f2-ba05-d7e9ae336c5e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/CalendarAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/CalendarAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ClassModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ClassModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/KeyModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/KeyModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Util/ClassesService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Util/ClassesService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_10_204702_create_keys_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_10_204702_create_keys_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ActivityKeysSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ActivityKeysSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ClassKeysSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ClassKeysSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/MachineKeysSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/MachineKeysSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/NewKeysSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/NewKeysSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fields/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fields/template.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,22 +25,41 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/database/seeds/ActivityKeysSeeder.php">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="558">
+                    <caret line="55" column="31" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="31" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/ClassScheduleModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-884">
-              <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
+            <state relative-caret-position="286">
+              <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Util/ClassesService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+            <state relative-caret-position="56">
+              <caret line="150" column="50" lean-forward="true" selection-start-line="150" selection-start-column="50" selection-end-line="150" selection-end-column="50" />
               <folding>
                 <element signature="e#30#56#0#PHP" expanded="true" />
               </folding>
@@ -38,19 +68,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repositories/KeyRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Repositories/BaseRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="144" column="48" lean-forward="true" selection-start-line="137" selection-start-column="15" selection-end-line="144" selection-end-column="48" />
+            <state relative-caret-position="232">
+              <caret line="139" column="64" selection-start-line="139" selection-start-column="64" selection-end-line="139" selection-end-column="64" />
               <folding>
                 <element signature="e#36#54#0#PHP" expanded="true" />
               </folding>
@@ -59,39 +80,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/app.php">
+        <entry file="file://$PROJECT_DIR$/app/Util/EloquentPropertyUtil.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="187" selection-start-line="187" selection-end-line="187" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="55" column="4" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/ClassModel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="127" column="27" lean-forward="true" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
+            <state relative-caret-position="322">
+              <caret line="41" column="43" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="43" />
               <folding>
-                <element signature="e#30#52#0#PHP" expanded="true" />
+                <element signature="e#30#69#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/CalendarAPIController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+            <state relative-caret-position="599">
+              <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
               <folding>
                 <element signature="e#46#89#0#PHP" expanded="true" />
               </folding>
@@ -110,10 +104,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/fields/template.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="50" column="55" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
+            <state relative-caret-position="594">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_10_204650_create_properties_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_10_204702_create_keys_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="17" column="81" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/seeds/MachineKeysSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="628">
+              <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_161246_alter_keys_table_1.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -164,16 +194,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/seeds/MachineKeysSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/ActivityKeysSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/NewKeysSeeder.php" />
-        <option value="$PROJECT_DIR$/app/Providers/ViewServiceProvider.php" />
-        <option value="$PROJECT_DIR$/resources/views/classes/create.blade.php" />
-        <option value="$PROJECT_DIR$/database/seeds/ClassKeysSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/app/Repositories/NewRepository.php" />
         <option value="$PROJECT_DIR$/resources/views/classes/show_fields.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/fields/template.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/activities/fields.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/ClassSchedule.php" />
         <option value="$PROJECT_DIR$/app/Models/Key.php" />
@@ -181,7 +203,6 @@
         <option value="$PROJECT_DIR$/resources/views/keys/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/keys/fields.blade.php" />
         <option value="$PROJECT_DIR$/app/Repositories/KeyRepository.php" />
-        <option value="$PROJECT_DIR$/app/Models/KeyModel.php" />
         <option value="$PROJECT_DIR$/resources/views/keys/index.blade.php" />
         <option value="$PROJECT_DIR$/app/DataTables/KeyDataTable.php" />
         <option value="$PROJECT_DIR$/resources/views/keys/edit.blade.php" />
@@ -200,21 +221,30 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/BaseRepository.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ClassScheduleController.php" />
-        <option value="$PROJECT_DIR$/app/Models/ClassScheduleModel.php" />
         <option value="$PROJECT_DIR$/public/js/paper-dashboard.js" />
         <option value="$PROJECT_DIR$/app/Models/ClassScheduleRecurrenceModel.php" />
         <option value="$PROJECT_DIR$/app/Repositories/ClassScheduleRepository.php" />
         <option value="$PROJECT_DIR$/resources/views/class_schedules/fields.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/CalendarAPIController.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/CalendarAPIController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_161246_alter_keys_table_1.php" />
+        <option value="$PROJECT_DIR$/app/Models/KeyModel.php" />
+        <option value="$PROJECT_DIR$/database/seeds/ActivityKeysSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/ClassKeysSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/NewKeysSeeder.php" />
         <option value="$PROJECT_DIR$/app/Models/ClassModel.php" />
+        <option value="$PROJECT_DIR$/app/Util/EloquentPropertyUtil.php" />
+        <option value="$PROJECT_DIR$/app/Models/ClassScheduleModel.php" />
         <option value="$PROJECT_DIR$/app/Util/ClassesService.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/BaseRepository.php" />
+        <option value="$PROJECT_DIR$/resources/views/fields/template.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_10_204702_create_keys_table.php" />
+        <option value="$PROJECT_DIR$/database/seeds/MachineKeysSeeder.php" />
       </list>
     </option>
   </component>
@@ -326,7 +356,7 @@
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-cors" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1920" />
     <option name="width" value="1920" />
     <option name="height" value="1080" />
@@ -360,7 +390,41 @@
               <item name="actionsport" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="actionsport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="actionsport" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="actionsport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="actionsport" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Middleware" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="actionsport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="actionsport" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="actionsport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="actionsport" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="actionsport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="actionsport" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="actionsport" type="b2602c69:ProjectViewProjectNode" />
@@ -382,7 +446,19 @@
             <path>
               <item name="actionsport" type="b2602c69:ProjectViewProjectNode" />
               <item name="actionsport" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="actionsport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="actionsport" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="actionsport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="actionsport" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="actionsport" type="b2602c69:ProjectViewProjectNode" />
@@ -556,18 +632,18 @@
       <workItem from="1560525525070" duration="1897000" />
       <workItem from="1560556593092" duration="26000" />
       <workItem from="1560815721167" duration="5139000" />
-      <workItem from="1560867727925" duration="6562000" />
+      <workItem from="1560867727925" duration="16188000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46345000" />
+    <option name="totallyTimeSpent" value="55971000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31750268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -594,104 +670,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/keys/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/keys/datatables_actions.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/bg5.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/machines/datatables_actions.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/machines/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/machines/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClassController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/paper-dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="6450" column="8" selection-start-line="6450" selection-start-column="8" selection-end-line="6450" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/UserModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-497">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DataTables/UserDataTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DataTables/ClassTypeDataTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DataTables/ActivityDataTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/classes/extends/file.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/classes/extends/reservable.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/classes/extends/status.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -759,13 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/fields/template.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-start-column="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Infrastructure/Repositories/Criterias/OrderByCriteria.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -820,20 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/class_schedules/fields.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1818">
-          <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/class_schedules/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/ClassAPIController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -862,23 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="50" column="55" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/CalendarAPIController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-          <folding>
-            <element signature="e#46#89#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
@@ -896,44 +836,197 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/BaseRepository.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/_types.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="144" column="48" lean-forward="true" selection-start-line="137" selection-start-column="15" selection-end-line="144" selection-end-column="48" />
-          <folding>
-            <element signature="e#36#54#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="253">
+          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/class_schedules/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/class_schedules/fields.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_10_213411_add_fk_clients_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="1303" column="20" selection-start-line="1303" selection-start-column="20" selection-end-line="1303" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/UserSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/RolSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/KeyModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="121" column="12" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ActivityKeysSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="55" column="31" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ClassKeysSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="67" column="32" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ClassTypeSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/NewKeysSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="52" column="55" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/ClassModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="127" column="27" lean-forward="true" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
+        <state relative-caret-position="592">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
           <folding>
             <element signature="e#30#52#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Util/EloquentPropertyUtil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="43" />
+          <folding>
+            <element signature="e#30#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/ClassScheduleModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-884">
-          <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
+        <state relative-caret-position="286">
+          <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/CalendarAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+          <folding>
+            <element signature="e#46#89#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Util/ClassesService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+        <state relative-caret-position="56">
+          <caret line="150" column="50" lean-forward="true" selection-start-line="150" selection-start-column="50" selection-end-line="150" selection-end-column="50" />
           <folding>
             <element signature="e#30#56#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/BaseRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="139" column="64" selection-start-line="139" selection-start-column="64" selection-end-line="139" selection-end-column="64" />
+          <folding>
+            <element signature="e#36#54#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/fields/template.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_10_204650_create_properties_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_10_204702_create_keys_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="17" column="81" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_161246_alter_keys_table_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/MachineKeysSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
         </state>
       </provider>
     </entry>
