@@ -7,10 +7,15 @@
 <!-- Days Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('days', 'Days:') !!}
-    <label class="checkbox-inline">
-        {!! Form::hidden('days', 0) !!}
-        {!! Form::checkbox('days', '1', null) !!} 1
-    </label>
+    <div class="form-check">
+        <label class="form-check-label">
+            {!! Form::hidden('days', 0) !!}
+            {!! Form::checkbox('days', '1', null) !!} 1
+            <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+    </div>
 </div>
 
 <!-- Difficulty Field -->
