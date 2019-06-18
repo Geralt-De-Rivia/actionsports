@@ -37,6 +37,7 @@ class ClassesService
                             $calendarDay->title = $class->class->name . '-' . $class->user->name;
                             $calendarDay->start = $day->setTimeFromTimeString($recurrence->start_time)->toDateTimeLocalString();
                             $calendarDay->end = $day->addMinutes($class->class->minutes)->toDateTimeLocalString();
+                            $calendarDay->color = '#E300E0';
                             $classesCalendar[] = $calendarDay;
                         }
                     }
