@@ -188,10 +188,6 @@
                 events: {
                 url: '{{ env('APP_URL') }}api/calendar',
                 method: 'GET',
-                extraParams: {
-                  month: '6',
-                  year: '2019'
-                },
                 failure: function() {
                   alert('there was an error while fetching events!');
                 },

@@ -12,18 +12,18 @@ use Carbon\CarbonPeriod;
 class ClassesService
 {
 
-    public function buildClasses($month, $year)
+    public function buildClasses($start, $end)
     {
-        $startDate = Carbon::createFromFormat('Y-m',$year.'-'.$month)->startOfMonth();
-        $endDate = Carbon::createFromFormat('Y-m',$year.'-'.$month)->endOfMonth();
+        $startDate = Carbon::parse($start);
+        $endDate = Carbon::parse($end);
         $period = CarbonPeriod::create($startDate, $endDate);
         $classes = ClassScheduleModel::with('class')->with('user')->with('classScheduleRecurrences')
             ->where(function ($query) use ($startDate) {
-            $query->where('start_at', '>=', $startDate)
-                ->orWhere('start_at', '=', null);
+            $query->where('start_at', '<=', $startDate)
+                ->orWhereNull('start_at');
         })->where(function ($query) use ($endDate) {
-            $query->where('end_at', '<=', $endDate)
-                ->orWhere('end_at', '=', null);
+            $query->where('end_at', '>=', $endDate)
+                ->orWhereNull('end_at');
         })->where('status','=',1)
             ->get();
         $classesCalendar = array();
