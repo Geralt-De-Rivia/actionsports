@@ -52,7 +52,7 @@ class ClassesService
         return $classesCalendar;
     }
 
-    private function days()
+    public static function days()
     {
         return [
             0 => 'Domingo',
@@ -65,7 +65,7 @@ class ClassesService
         ];
     }
 
-    private function daysInverse()
+    public static function daysInverse()
     {
         return [
             'Domingo' => 0,

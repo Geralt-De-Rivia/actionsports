@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 
 abstract class BaseRepository
@@ -98,8 +99,10 @@ abstract class BaseRepository
     {
         $query = $this->model->newQuery();
 
+        //Log::debug("this is the search",['data' => $search,'count'=> count($search)]);
         if (count($search)) {
             foreach ($search as $key => $value) {
+                //Log::debug("search param",['key' => $key,'value'=>$value]);
                 if (in_array($key, $this->getFieldsSearchable())) {
                     $query->where($key, $value);
                 }

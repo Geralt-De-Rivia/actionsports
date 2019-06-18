@@ -6,6 +6,8 @@ use App\Http\Requests\API\CreateClassAPIRequest;
 use App\Http\Requests\API\UpdateClassAPIRequest;
 use App\Models\ClassModel;
 use App\Repositories\ClassRepository;
+use App\Repositories\ClassScheduleRepository;
+use App\Util\ClassReservationService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -20,9 +22,12 @@ class ClassAPIController extends AppBaseController
     /** @var  ClassRepository */
     private $classRepository;
 
-    public function __construct(ClassRepository $classRepo)
+    private $classScheduleRepository;
+
+    public function __construct(ClassRepository $classRepo, ClassScheduleRepository $classRepository)
     {
         $this->classRepository = $classRepo;
+        $this->classScheduleRepository = $classRepository;
     }
 
     /**
@@ -64,56 +69,10 @@ class ClassAPIController extends AppBaseController
             $request->get('skip'),
             $request->get('limit')
         );
-
         return $this->sendResponse($classes->toArray(), 'Classes retrieved successfully');
     }
 
-    /**
-     * @param CreateClassAPIRequest $request
-     * @return Response
-     *
-     * @SWG\Post(
-     *      path="/classes",
-     *      summary="Store a newly created Class in storage",
-     *      tags={"Class"},
-     *      description="Store Class",
-     *      produces={"application/json"},
-     *      @SWG\Parameter(
-     *          name="body",
-     *          in="body",
-     *          description="Class that should be stored",
-     *          required=false,
-     *          @SWG\Schema(ref="#/definitions/Class")
-     *      ),
-     *      @SWG\Response(
-     *          response=200,
-     *          description="successful operation",
-     *          @SWG\Schema(
-     *              type="object",
-     *              @SWG\Property(
-     *                  property="success",
-     *                  type="boolean"
-     *              ),
-     *              @SWG\Property(
-     *                  property="data",
-     *                  ref="#/definitions/Class"
-     *              ),
-     *              @SWG\Property(
-     *                  property="message",
-     *                  type="string"
-     *              )
-     *          )
-     *      )
-     * )
-     */
-    public function store(CreateClassAPIRequest $request)
-    {
-        $input = $request->all();
 
-        $class = $this->classRepository->create($input);
-
-        return $this->sendResponse($class->toArray(), 'Class saved successfully');
-    }
 
     /**
      * @param int $id
@@ -153,129 +112,21 @@ class ClassAPIController extends AppBaseController
      *      )
      * )
      */
-    public function show($id)
+    public function days($id)
     {
         /** @var Class $class */
         $class = $this->classRepository->find($id);
+
+        $service = new ClassReservationService();
+
+        $days = $service->getAvailableDays($id);
 
         if (empty($class)) {
             return $this->sendError('Class not found');
         }
 
-        return $this->sendResponse($class->toArray(), 'Class retrieved successfully');
+        return $this->sendResponse($days, 'Class retrieved successfully');
     }
 
-    /**
-     * @param int $id
-     * @param UpdateClassAPIRequest $request
-     * @return Response
-     *
-     * @SWG\Put(
-     *      path="/classes/{id}",
-     *      summary="Update the specified Class in storage",
-     *      tags={"Class"},
-     *      description="Update Class",
-     *      produces={"application/json"},
-     *      @SWG\Parameter(
-     *          name="id",
-     *          description="id of Class",
-     *          type="integer",
-     *          required=true,
-     *          in="path"
-     *      ),
-     *      @SWG\Parameter(
-     *          name="body",
-     *          in="body",
-     *          description="Class that should be updated",
-     *          required=false,
-     *          @SWG\Schema(ref="#/definitions/Class")
-     *      ),
-     *      @SWG\Response(
-     *          response=200,
-     *          description="successful operation",
-     *          @SWG\Schema(
-     *              type="object",
-     *              @SWG\Property(
-     *                  property="success",
-     *                  type="boolean"
-     *              ),
-     *              @SWG\Property(
-     *                  property="data",
-     *                  ref="#/definitions/Class"
-     *              ),
-     *              @SWG\Property(
-     *                  property="message",
-     *                  type="string"
-     *              )
-     *          )
-     *      )
-     * )
-     */
-    public function update($id, UpdateClassAPIRequest $request)
-    {
-        $input = $request->all();
 
-        /** @var Class $class */
-        $class = $this->classRepository->find($id);
-
-        if (empty($class)) {
-            return $this->sendError('Class not found');
-        }
-
-        $class = $this->classRepository->update($input, $id);
-
-        return $this->sendResponse($class->toArray(), 'Class updated successfully');
-    }
-
-    /**
-     * @param int $id
-     * @return Response
-     *
-     * @SWG\Delete(
-     *      path="/classes/{id}",
-     *      summary="Remove the specified Class from storage",
-     *      tags={"Class"},
-     *      description="Delete Class",
-     *      produces={"application/json"},
-     *      @SWG\Parameter(
-     *          name="id",
-     *          description="id of Class",
-     *          type="integer",
-     *          required=true,
-     *          in="path"
-     *      ),
-     *      @SWG\Response(
-     *          response=200,
-     *          description="successful operation",
-     *          @SWG\Schema(
-     *              type="object",
-     *              @SWG\Property(
-     *                  property="success",
-     *                  type="boolean"
-     *              ),
-     *              @SWG\Property(
-     *                  property="data",
-     *                  type="string"
-     *              ),
-     *              @SWG\Property(
-     *                  property="message",
-     *                  type="string"
-     *              )
-     *          )
-     *      )
-     * )
-     */
-    public function destroy($id)
-    {
-        /** @var Class $class */
-        $class = $this->classRepository->find($id);
-
-        if (empty($class)) {
-            return $this->sendError('Class not found');
-        }
-
-        $class->delete();
-
-        return $this->sendResponse($id, 'Class deleted successfully');
-    }
 }

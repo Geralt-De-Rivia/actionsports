@@ -20,7 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('activities', 'ActivityAPIController');
 
-Route::resource('classes', 'ClassAPIController');
 
 Route::resource('clients', 'ClientAPIController');
 
@@ -51,4 +50,8 @@ Route::get('calendar', 'CalendarAPIController@index');
 Route::get('calendar/next', 'CalendarAPIController@next');
 
 Route::get('calendar/week', 'CalendarAPIController@week');
+
+Route::get('classes', 'ClassAPIController@index');
+
+Route::get('classes/{id}/days', 'ClassAPIController@days');
 
