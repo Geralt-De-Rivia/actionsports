@@ -34,7 +34,7 @@
 <!-- Role Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('role_id', 'Rol:') !!}
-    {!! Form::number('role_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('role_id',$roles ?? [], $class->role_id ?? null,['class'=>'form-control']) !!}  
 </div>
 
 <!-- Status Field -->

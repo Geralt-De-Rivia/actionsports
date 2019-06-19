@@ -6,6 +6,7 @@ use App\DataTables\UserDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\RolModel;
 use App\Repositories\UserRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -39,7 +40,9 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        return view('users.create');
+        $roles = RolModel::all()->pluck('name','id');
+        return view('users.create')
+        ->with('roles', $roles);
     }
 
     /**
@@ -90,14 +93,16 @@ class UserController extends AppBaseController
     public function edit($id)
     {
         $user = $this->userRepository->find($id);
-
+        $roles = RolModel::all()->pluck('name','id');
         if (empty($user)) {
             Flash::error('User not found');
 
             return redirect(route('users.index'));
         }
-
-        return view('users.edit')->with('user', $user);
+        
+        return view('users.edit')
+            ->with('user', $user)
+            ->with('roles', $roles);
     }
 
     /**
