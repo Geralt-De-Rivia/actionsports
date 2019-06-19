@@ -6,10 +6,10 @@ use App\DataTables\UserDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Models\RolModel;
 use App\Repositories\UserRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Hash;
 use Response;
 
 class UserController extends AppBaseController
@@ -40,9 +40,7 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        $roles = RolModel::all()->pluck('name','id');
-        return view('users.create')
-        ->with('roles', $roles);
+        return view('users.create');
     }
 
     /**
@@ -55,6 +53,7 @@ class UserController extends AppBaseController
     public function store(CreateUserRequest $request)
     {
         $input = $request->all();
+        $input['password'] = Hash::make($request->password);
 
         $user = $this->userRepository->create($input);
 
@@ -93,16 +92,14 @@ class UserController extends AppBaseController
     public function edit($id)
     {
         $user = $this->userRepository->find($id);
-        $roles = RolModel::all()->pluck('name','id');
+
         if (empty($user)) {
             Flash::error('User not found');
 
             return redirect(route('users.index'));
         }
-        
-        return view('users.edit')
-            ->with('user', $user)
-            ->with('roles', $roles);
+
+        return view('users.edit')->with('user', $user);
     }
 
     /**
@@ -123,7 +120,10 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
 
-        $user = $this->userRepository->update($request->all(), $id);
+        $input= $request->all();
+        $input['password'] = Hash::make($request->password);
+
+        $user = $this->userRepository->update($input, $id);
 
         Flash::success('User updated successfully.');
 
