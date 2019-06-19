@@ -13,7 +13,7 @@
 <!-- Email Verified At Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('email_verified_at', 'Fecha Verificación:') !!}
-    {!! Form::date('email_verified_at', null, ['class' => 'form-control','id'=>'email_verified_at']) !!}
+    {!! Form::datetime('email_verified_at', null, ['class' => 'form-control','id'=>'email_verified_at']) !!}
 </div>
 
 @section('scripts')
