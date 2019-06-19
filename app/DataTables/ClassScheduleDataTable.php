@@ -18,7 +18,14 @@ class ClassScheduleDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'class_schedules.datatables_actions');
+        return $dataTable
+            ->addColumn('action', 'class_schedules.datatables_actions')
+            ->editColumn('status', function($classSchedule) {
+                $status = ($classSchedule->status ==1)
+                    ? 'Activo'
+                    : 'Inactivo';
+                return $status;
+            });
     }
 
     /**
@@ -29,7 +36,10 @@ class ClassScheduleDataTable extends DataTable
      */
     public function query(ClassScheduleModel $model)
     {
-        return $model->newQuery();
+        return $model
+        ->with('class')
+        ->with('user')
+        ->newQuery();
     }
 
     /**
@@ -66,14 +76,14 @@ class ClassScheduleDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'class_id',
-            'user_id',
-            'quota_min',
-            'quota_max',
-            'start_at',
-            'end_at',
-            'status',
-            'recurrence'
+            ['title' => 'Clase', 'data' => 'class.name'],
+            ['title' => 'Nombre', 'data' => 'user.name'],
+            ['title' => 'Cantidad Min', 'data' => 'quota_min'],
+            ['title' => 'Cantidad Max', 'data' => 'quota_max'],
+            ['title' => 'Inicio', 'data' => 'start_at'],
+            ['title' => 'Fin', 'data' => 'end_at'],
+            ['title' => 'Estado', 'data' => 'status'],
+            ['title' => 'Recurrencia', 'data' => 'recurrence'],
         ];
     }
 

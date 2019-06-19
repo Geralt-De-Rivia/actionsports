@@ -18,7 +18,14 @@ class ActivityDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'activities.datatables_actions');
+        return $dataTable
+        ->addColumn('action', 'activities.datatables_actions')
+        ->editColumn('status', function($activity) {
+                $status = ($activity->status ==1)
+                    ? 'Activo'
+                    : 'Inactivo';
+                return $status;
+            });
     }
 
     /**
@@ -66,8 +73,8 @@ class ActivityDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'status'
+            ['title' => 'Nombre', 'data' => 'name'],
+            ['title' => 'Estado', 'data' => 'status'],
         ];
     }
 

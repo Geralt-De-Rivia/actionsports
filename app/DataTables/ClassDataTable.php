@@ -21,7 +21,19 @@ class ClassDataTable extends DataTable
         return $dataTable->addColumn('action', 'classes.datatables_actions')
             ->addColumn('status', 'classes.extends.status')
             ->addColumn('reservable', 'classes.extends.reservable')
-            ->rawColumns( [ 'status', 'action','reservable' ] );
+            ->rawColumns( [ 'status', 'action','reservable' ] )
+            ->editColumn('status', function($class) {
+                $status = ($class->status ==1)
+                    ? 'Activo'
+                    : 'Inactivo';
+                return $status;
+            })
+            ->editColumn('reservable', function($class) {
+                $reservable = ($class->reservable ==1)
+                    ? 'Reservado'
+                    : 'No Reservada';
+                return $reservable;
+            });
     }
 
     /**
@@ -71,9 +83,9 @@ class ClassDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'minutes',
-            'status',
+            ['title' => 'Nombre', 'data' => 'name'],
+            ['title' => 'Minutos', 'data' => 'minutes'],
+            ['title' => 'Estado', 'data' => 'status'],
             'reservable',
             ['title' => 'Tipo', 'data' => 'class_type.name']
         ];

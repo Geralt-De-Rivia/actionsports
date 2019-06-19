@@ -77,7 +77,7 @@ class UserDataTable extends DataTable
         return [
             ['title' => 'Nombre', 'data' => 'name'],
             ['title' => 'Correo Electronico', 'data' => 'email'],
-            [ 'title' => 'Rol', 'data' => 'role.name'],
+            ['title' => 'Rol', 'data' => 'role.name'],
             ['title' => 'Estado', 'data' => 'status'],
         ];
     }

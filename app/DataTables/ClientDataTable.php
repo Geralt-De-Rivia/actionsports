@@ -29,7 +29,9 @@ class ClientDataTable extends DataTable
      */
     public function query(ClientModel $model)
     {
-        return $model->newQuery();
+        return $model
+            ->with('clientStatus')
+            ->newQuery();
     }
 
     /**
@@ -67,14 +69,14 @@ class ClientDataTable extends DataTable
     {
         return [
             'dni',
-            'name',
-            'last_name',
-            'phone_number',
+            ['title' => 'Nombre', 'data' => 'name'],
+            ['title' => 'Apellido', 'data' => 'last_name'],
+            ['title' => 'Número Telefono', 'data' => 'phone_number'],
             'email',
-            'code',
+            ['title' => 'Código', 'data' => 'code'],
             //'image_url',
-            'membership_number',
-            'client_status_id'//,
+            //['title' => 'Número Membresia', 'data' => 'membership_number'],
+            ['title' => 'Estado Cliente', 'data' => 'client_status.name']
             //'birth_date',
             //'email_verified_at',
             //'password'

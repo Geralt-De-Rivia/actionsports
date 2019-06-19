@@ -18,7 +18,14 @@ class NewDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'news.datatables_actions');
+        return $dataTable
+            ->addColumn('action', 'news.datatables_actions')
+            ->editColumn('status', function($new) {
+                $status = ($new->status ==1)
+                    ? 'Activo'
+                    : 'Inactivo';
+                return $status;
+            });
     }
 
     /**
@@ -66,8 +73,8 @@ class NewDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'status'
+            ['title' => 'Nombre', 'data' => 'name'],
+            ['title' => 'Estado', 'data' => 'status'],
         ];
     }
 

@@ -66,9 +66,9 @@ class RoutineDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'days',
-            'difficulty'
+            ['title' => 'Nombre', 'data' => 'name'],
+            ['title' => 'Días', 'data' => 'days'],
+            ['title' => 'Dificultad', 'data' => 'difficulty'],
         ];
     }
 

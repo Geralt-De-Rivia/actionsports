@@ -18,7 +18,14 @@ class MachineDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'machines.datatables_actions');
+        return $dataTable
+            ->addColumn('action', 'machines.datatables_actions')
+            ->editColumn('status', function($machine) {
+                $status = ($machine->status ==1)
+                    ? 'Activo'
+                    : 'Inactivo';
+                return $status;
+            });
     }
 
     /**
@@ -66,8 +73,8 @@ class MachineDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'status'
+            ['title' => 'Nombre', 'data' => 'name'],
+            ['title' => 'Estado', 'data' => 'status'],
         ];
     }
 
