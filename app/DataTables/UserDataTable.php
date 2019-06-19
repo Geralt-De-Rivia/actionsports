@@ -18,7 +18,14 @@ class UserDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'users.datatables_actions');
+        return $dataTable
+            ->addColumn('action', 'users.datatables_actions')
+            ->editColumn('status', function($user) {
+                $status = ($user->status ==1)
+                    ? 'Activo'
+                    : 'Inactivo';
+                return $status;
+            });
     }
 
     /**
@@ -68,10 +75,10 @@ class UserDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'email',
+            ['title' => 'Nombre', 'data' => 'name'],
+            ['title' => 'Correo Electronico', 'data' => 'email'],
             [ 'title' => 'Rol', 'data' => 'role.name'],
-            'status',
+            ['title' => 'Estado', 'data' => 'status'],
         ];
     }
 
