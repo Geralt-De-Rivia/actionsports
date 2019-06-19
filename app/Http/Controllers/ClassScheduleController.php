@@ -63,7 +63,7 @@ class ClassScheduleController extends AppBaseController
 
         Flash::success('Horario de Clase Guardada Satisfactoriamente.');
 
-        return redirect(route('classSchedules.index'));
+        return redirect(route('class_schedules.index'));
     }
 
     /**
@@ -80,7 +80,7 @@ class ClassScheduleController extends AppBaseController
         if (empty($classSchedule)) {
             Flash::error('Class Schedule not found');
 
-            return redirect(route('classSchedules.index'));
+            return redirect(route('class_schedules.index'));
         }
 
         return view('class_schedules.show')->with('classSchedule', $classSchedule);
@@ -102,7 +102,7 @@ class ClassScheduleController extends AppBaseController
         if (empty($classSchedule)) {
             Flash::error('Class Schedule not found');
 
-            return redirect(route('classSchedules.index'));
+            return redirect(route('class_schedules.index'));
         }
 
         return view('class_schedules.edit')->with('classSchedule', $classSchedule);
@@ -123,14 +123,14 @@ class ClassScheduleController extends AppBaseController
         if (empty($classSchedule)) {
             Flash::error('Class Schedule not found');
 
-            return redirect(route('classSchedules.index'));
+            return redirect(route('class_schedules.index'));
         }
 
         $classSchedule = $this->classScheduleRepository->update($request->all(), $id);
 
         Flash::success('Class Schedule updated successfully.');
 
-        return redirect(route('classSchedules.index'));
+        return redirect(route('class_schedules.index'));
     }
 
     /**
@@ -147,13 +147,13 @@ class ClassScheduleController extends AppBaseController
         if (empty($classSchedule)) {
             Flash::error('Class Schedule not found');
 
-            return redirect(route('classSchedules.index'));
+            return redirect(route('class_schedules.index'));
         }
 
         $this->classScheduleRepository->delete($id);
 
         Flash::success('Class Schedule deleted successfully.');
 
-        return redirect(route('classSchedules.index'));
+        return redirect(route('class_schedules.index'));
     }
 }
