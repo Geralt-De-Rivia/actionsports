@@ -1,12 +1,12 @@
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name:') !!}
+    {!! Form::label('name', 'Nombre:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Days Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('days', 'Days:') !!}
+    {!! Form::label('days', 'Días:') !!}
     <div class="form-check">
         <label class="form-check-label">
             {!! Form::hidden('days', 0) !!}
@@ -20,7 +20,7 @@
 
 <!-- Difficulty Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('difficulty', 'Difficulty:') !!}
+    {!! Form::label('difficulty', 'Dificultad:') !!}
     {!! Form::text('difficulty', null, ['class' => 'form-control']) !!}
 </div>
 

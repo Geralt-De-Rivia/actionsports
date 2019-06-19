@@ -1,6 +1,6 @@
 <!-- Class Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('class_id', 'Class Id:') !!}
+    {!! Form::label('class_id', 'Clase:') !!}
     {!! Form::select('class_id',$classes ?? [], $class->class_id ?? null,['class'=>'form-control']) !!}
 
 </div>
@@ -55,7 +55,7 @@
 
 <!-- Status Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('status', 'Status:') !!}
+    {!! Form::label('status', 'Estado:') !!}
     <div class="form-check">
         <label class="form-check-label">
             {!! Form::hidden('status', 0) !!}
