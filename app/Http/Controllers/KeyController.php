@@ -39,7 +39,10 @@ class KeyController extends AppBaseController
      */
     public function create()
     {
-        return view('keys.create');
+
+        return view('keys.create')
+        ->with('models', collect(\App\Models\KeyModel::$MODELS)->pluck('label','id'))
+        ->with('types', collect(\App\Models\KeyModel::$TYPES)->pluck('label','id'));
     }
 
     /**
@@ -97,7 +100,10 @@ class KeyController extends AppBaseController
             return redirect(route('keys.index'));
         }
 
-        return view('keys.edit')->with('key', $key);
+        return view('keys.edit')
+        ->with('key', $key)
+        ->with('models', collect(\App\Models\KeyModel::$MODELS)->pluck('label','id'))
+        ->with('types', collect(\App\Models\KeyModel::$TYPES)->pluck('label','id'));
     }
 
     /**

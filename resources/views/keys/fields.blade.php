@@ -1,12 +1,7 @@
 <!-- Type Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('type', 'Tipo:') !!}
-    <select class="form-control" name="type">
-        <option value selected disabled>Seleccione..</option>
-    @foreach(\App\Models\KeyModel::$TYPES as $type)
-            <option value="{{$type['id']}}">{!! $type['label'] !!}</option>
-        @endforeach
-    </select>
+    {!! Form::select('type', $types ?? [], $key->type ?? null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Label Field -->
@@ -18,12 +13,7 @@
 <!-- Model Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('model', 'Recurso:') !!}
-    <select class="form-control" name="model">
-        <option value selected disabled>Seleccione..</option>
-        @foreach(\App\Models\KeyModel::$MODELS as $model)
-            <option value="{{$model['id']}}">{!! $model['label'] !!}</option>
-        @endforeach
-    </select>
+    {!! Form::select('model', $models ?? [], $key->model ?? null, ['class' => 'form-control']) !!}
 </div>
 
 
