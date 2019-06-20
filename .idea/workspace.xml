@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dcb82ae-cd69-49f2-ba05-d7e9ae336c5e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +28,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="468">
               <caret line="107" column="52" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#7#389#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,20 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="52" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/ClientActivityModel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="954">
-              <caret line="53" column="20" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="20" />
+            <state relative-caret-position="126">
+              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -157,7 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/CalendarAPIController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_18_161246_alter_keys_table_1.php" />
         <option value="$PROJECT_DIR$/app/Models/KeyModel.php" />
@@ -172,7 +174,6 @@
         <option value="$PROJECT_DIR$/app/Repositories/ClassRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/BaseRepository.php" />
         <option value="$PROJECT_DIR$/app/Util/ClassesService.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/ClassAPIController.php" />
         <option value="$PROJECT_DIR$/app/Util/ClassReservationService.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_10_212108_create_class_reservations_table.php" />
@@ -208,6 +209,8 @@
         <option value="$PROJECT_DIR$/app/Repositories/RoutineClientRepository.php" />
         <option value="$PROJECT_DIR$/app/Util/ClassActivityService.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" />
       </list>
     </option>
   </component>
@@ -537,12 +540,12 @@
       <workItem from="1560815721167" duration="5139000" />
       <workItem from="1560867727925" duration="18966000" />
       <workItem from="1560957034671" duration="21696000" />
-      <workItem from="1561045370893" duration="3528000" />
+      <workItem from="1561045370893" duration="3830000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83973000" />
+    <option name="totallyTimeSpent" value="84275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="-1" width="1922" height="1085" extended-state="6" />
@@ -624,13 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="796">
           <caret line="59" column="63" selection-start-line="59" selection-start-column="63" selection-end-line="59" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="46" column="31" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -919,17 +915,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="52" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="107" column="52" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#7#389#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
         </state>
       </provider>
     </entry>
