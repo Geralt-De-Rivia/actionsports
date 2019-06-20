@@ -3,14 +3,12 @@
 namespace App\Repositories;
 
 use App\Models\ClientModel;
-use App\Repositories\BaseRepository;
 
 /**
  * Class ClientRepository
  * @package App\Repositories
  * @version June 10, 2019, 10:33 pm UTC
-*/
-
+ */
 class ClientRepository extends BaseRepository
 {
     /**
@@ -47,5 +45,34 @@ class ClientRepository extends BaseRepository
     public function model()
     {
         return ClientModel::class;
+    }
+
+    public function create($input)
+    {
+        $input['client_status_id'] = 1;
+        $input['membership_number'] = $input['dni'];
+        return parent::create($input);
+    }
+
+    public function login($memberShipNumber, $code)
+    {
+        $client = ClientModel::where('membership_number', '=', $memberShipNumber)
+            ->where('code', '=', $code)
+            ->get()
+            ->first();
+
+        if (empty($client)) {
+            throw new \Exception("El cliente no existe");
+        }
+
+        if ($client->client_status_id == 1) {
+            throw new \Exception("El cliente se encuentra en estado preinscrito");
+        }
+
+        if ($client->client_status_id == 3) {
+            throw new \Exception("El cliente se encuentra suspendido");
+        }
+
+        return $client;
     }
 }

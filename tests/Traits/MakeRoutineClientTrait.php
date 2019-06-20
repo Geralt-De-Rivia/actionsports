@@ -7,7 +7,7 @@ use App\Repositories\RoutineClientRepository;
 trait MakeRoutineClientTrait
 {
     /**
-     * Create fake instance of RoutineClient and save it in database
+     * Create fake instance of RoutineClientModel and save it in database
      *
      * @param array $routineClientFields
      * @return RoutineClientModel
@@ -21,7 +21,7 @@ trait MakeRoutineClientTrait
     }
 
     /**
-     * Get fake instance of RoutineClient
+     * Get fake instance of RoutineClientModel
      *
      * @param array $routineClientFields
      * @return RoutineClientModel
@@ -32,7 +32,7 @@ trait MakeRoutineClientTrait
     }
 
     /**
-     * Get fake data of RoutineClient
+     * Get fake data of RoutineClientModel
      *
      * @param array $routineClientFields
      * @return array

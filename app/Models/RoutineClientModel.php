@@ -6,7 +6,7 @@ use Eloquent as Model;
 
 /**
  * @SWG\Definition(
- *      definition="RoutineClient",
+ *      definition="RoutineClientModel",
  *      required={""},
  *      @SWG\Property(
  *          property="id",
@@ -79,7 +79,8 @@ class RoutineClientModel extends Model
         'client_id',
         'start_at',
         'end_at',
-        'status'
+        'status',
+        'requested_days'
     ];
 
     /**
@@ -94,7 +95,8 @@ class RoutineClientModel extends Model
         'client_id' => 'integer',
         'start_at' => 'date',
         'end_at' => 'date',
-        'status' => 'boolean'
+        'status' => 'boolean',
+        'requested_days' => 'integer'
     ];
 
     /**
@@ -103,11 +105,6 @@ class RoutineClientModel extends Model
      * @var array
      */
     public static $rules = [
-        'routine_id' => 'required',
-        'user_id' => 'required',
-        'client_id' => 'required',
-        'start_at' => 'required',
-        'status' => 'required'
     ];
 
     /**
@@ -115,7 +112,7 @@ class RoutineClientModel extends Model
      **/
     public function client()
     {
-        return $this->belongsTo(\App\Models\Client::class, 'client_id');
+        return $this->belongsTo(\App\Models\ClientModel::class, 'client_id');
     }
 
     /**
@@ -123,7 +120,7 @@ class RoutineClientModel extends Model
      **/
     public function routine()
     {
-        return $this->belongsTo(\App\Models\Routine::class, 'routine_id');
+        return $this->belongsTo(\App\Models\RoutineModel::class, 'routine_id');
     }
 
     /**

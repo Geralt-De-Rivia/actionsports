@@ -26,7 +26,7 @@ class CreateClientsTable extends Migration
             $table->bigInteger('client_status_id')->unsigned();
             $table->date('birth_date')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->timestamps();
         });
     }

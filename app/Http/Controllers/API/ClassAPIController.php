@@ -128,5 +128,22 @@ class ClassAPIController extends AppBaseController
         return $this->sendResponse($days, 'Class retrieved successfully');
     }
 
+    public function schedules($id, $date){
+
+        /** @var Class $class */
+        $class = $this->classRepository->find($id);
+
+        $service = new ClassReservationService();
+
+        $days = $service->getSchedules($id, $date);
+
+        if (empty($class)) {
+            return $this->sendError('Class not found');
+        }
+
+        return $this->sendResponse($days, 'Class retrieved successfully');
+
+    }
+
 
 }

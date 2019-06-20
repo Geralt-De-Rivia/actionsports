@@ -67,8 +67,8 @@ class RoutineModel extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
-        'days' => 'boolean',
-        'difficulty' => 'string'
+        'days' => 'integer',
+        'difficulty' => 'integer'
     ];
 
     /**

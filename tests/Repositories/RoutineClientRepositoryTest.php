@@ -31,8 +31,8 @@ class RoutineClientRepositoryTest extends TestCase
         $createdRoutineClient = $this->routineClientRepo->create($routineClient);
         $createdRoutineClient = $createdRoutineClient->toArray();
         $this->assertArrayHasKey('id', $createdRoutineClient);
-        $this->assertNotNull($createdRoutineClient['id'], 'Created RoutineClient must have id specified');
-        $this->assertNotNull(RoutineClientModel::find($createdRoutineClient['id']), 'RoutineClient with given id must be in DB');
+        $this->assertNotNull($createdRoutineClient['id'], 'Created RoutineClientModel must have id specified');
+        $this->assertNotNull(RoutineClientModel::find($createdRoutineClient['id']), 'RoutineClientModel with given id must be in DB');
         $this->assertModelData($routineClient, $createdRoutineClient);
     }
 
@@ -68,6 +68,6 @@ class RoutineClientRepositoryTest extends TestCase
         $routineClient = $this->makeRoutineClient();
         $resp = $this->routineClientRepo->delete($routineClient->id);
         $this->assertTrue($resp);
-        $this->assertNull(RoutineClientModel::find($routineClient->id), 'RoutineClient should not exist in DB');
+        $this->assertNull(RoutineClientModel::find($routineClient->id), 'RoutineClientModel should not exist in DB');
     }
 }

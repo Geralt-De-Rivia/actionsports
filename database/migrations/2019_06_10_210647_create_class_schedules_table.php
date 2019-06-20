@@ -19,10 +19,9 @@ class CreateClassSchedulesTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->integer('quota_min');
             $table->integer('quota_max');
-            $table->date('start_at');
+            $table->date('start_at')->nullable();
             $table->date('end_at')->nullable();
             $table->boolean('status')->default(true);
-            $table->boolean('recurrence')->default(false);
             $table->timestamps();
         });
     }

@@ -12,11 +12,11 @@ class ClassTypeSeeder extends Seeder
     public function run()
     {
         $classType = new \App\Models\ClassTypeModel();
-        $classType->name = 'Cardio';
+        $classType->name = 'Fitness';
         $classType->save();
 
         $classType = new \App\Models\ClassTypeModel();
-        $classType->name = 'Fuerza';
+        $classType->name = 'Pileta';
         $classType->save();
     }
 }

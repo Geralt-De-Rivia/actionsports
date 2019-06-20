@@ -52,7 +52,8 @@ class ClientActivityModel extends Model
 
     public $fillable = [
         'activity_id',
-        'client_id'
+        'client_id',
+        'routine_id'
     ];
 
     /**
@@ -63,7 +64,8 @@ class ClientActivityModel extends Model
     protected $casts = [
         'id' => 'integer',
         'activity_id' => 'integer',
-        'client_id' => 'integer'
+        'client_id' => 'integer',
+        'routine_id' => 'integer'
     ];
 
     /**
@@ -73,7 +75,9 @@ class ClientActivityModel extends Model
      */
     public static $rules = [
         'activity_id' => 'required',
-        'client_id' => 'required'
+        'client_id' => 'required',
+        'routine_id' => 'required'
+
     ];
 
     /**

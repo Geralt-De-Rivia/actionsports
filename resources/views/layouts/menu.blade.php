@@ -38,3 +38,7 @@
     <a href="{!! route('keys.index') !!}"><i class="fa fa-edit"></i><span>Llaves</span></a>
 </li>
 
+<li class="{{ Request::is('routineClients*') ? 'active' : '' }}">
+    <a href="{!! route('routineClients.index') !!}"><i class="fa fa-edit"></i><span>Rutinas de clientes</span></a>
+</li>
+

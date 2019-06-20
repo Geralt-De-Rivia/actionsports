@@ -37,8 +37,6 @@ Route::resource('client_activities', 'ClientActivityAPIController');
 
 Route::resource('routine_activities', 'RoutineActivityAPIController');
 
-Route::resource('routine_clients', 'RoutineClientAPIController');
-
 Route::resource('users', 'UserAPIController');
 
 Route::resource('class_types', 'ClassTypeAPIController');
@@ -55,3 +53,10 @@ Route::get('classes', 'ClassAPIController@index');
 
 Route::get('classes/{id}/days', 'ClassAPIController@days');
 
+Route::get('classes/{id}/days/{recurrenceId}/schedules', 'ClassAPIController@schedules');
+
+Route::post('login', 'LoginAPIController@login');
+
+Route::get('routine_clients', 'RoutineClientAPIController@index');
+
+Route::resource('clients/{clientId}/routines', 'RoutineClientAPIController');

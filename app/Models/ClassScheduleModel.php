@@ -122,7 +122,6 @@ class ClassScheduleModel extends Model
         'user_id' => 'required',
         'quota_min' => 'required',
         'quota_max' => 'required',
-        'start_at' => 'required',
         'status' => 'required',
     ];
 

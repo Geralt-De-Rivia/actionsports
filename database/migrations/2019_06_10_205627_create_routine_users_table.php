@@ -15,12 +15,12 @@ class CreateRoutineUsersTable extends Migration
     {
         Schema::create('routine_clients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('routine_id')->unsigned();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('routine_id')->unsigned()->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('client_id')->unsigned();
-            $table->date('start_at');
+            $table->date('start_at')->nullable();
             $table->date('end_at')->nullable();
-            $table->boolean('status')->default(true);
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

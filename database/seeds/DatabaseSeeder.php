@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NewKeysSeeder::class);
         $this->call(ClassKeysSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(ClientStatusSeeder::class);
 
     }
 }

@@ -2,15 +2,17 @@
 
 namespace App\Repositories;
 
+use App\Models\RoutineActivityModel;
 use App\Models\RoutineClientModel;
-use App\Repositories\BaseRepository;
+use App\Util\ClassActivityService;
+use App\Util\EloquentPropertyUtil;
+use Carbon\Carbon;
 
 /**
  * Class RoutineClientRepository
  * @package App\Repositories
- * @version June 10, 2019, 10:38 pm UTC
-*/
-
+ * @version June 19, 2019, 4:16 pm -05
+ */
 class RoutineClientRepository extends BaseRepository
 {
     /**
@@ -41,5 +43,28 @@ class RoutineClientRepository extends BaseRepository
     public function model()
     {
         return RoutineClientModel::class;
+    }
+
+    public function currentRoutine($clientId)
+    {
+
+        $now = Carbon::now();
+        $routine = RoutineClientModel::with('user')
+            ->where(function ($query) use ($now) {
+                $query->where('start_at', '<=', $now)
+                    ->orWhere('end_at', '>=', $now);
+            })
+            ->where('status', '=', 1)
+            ->orderBy('start_at')
+            ->get()
+            ->first();
+
+        $service = new ClassActivityService();
+
+        $activities = $service->getRoundActivity($clientId, $routine->routine_id);
+
+        $routine->items = $activities;
+
+        return $routine;
     }
 }

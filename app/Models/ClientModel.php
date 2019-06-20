@@ -148,8 +148,6 @@ class ClientModel extends Model
         'name' => 'required',
         'last_name' => 'required',
         'email' => 'required',
-        'client_status_id' => 'required',
-        'password' => 'required'
     ];
 
     /**

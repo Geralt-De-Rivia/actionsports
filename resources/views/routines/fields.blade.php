@@ -6,22 +6,15 @@
 
 <!-- Days Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('days', 'Días:') !!}
-    <div class="form-check">
-        <label class="form-check-label">
-            {!! Form::hidden('days', 0) !!}
-            {!! Form::checkbox('days', '1', null) !!} 1
-            <span class="form-check-sign">
-            <span class="check"></span>
-          </span>
-        </label>
-    </div>
+    {!! Form::label('days', 'Días por semana:') !!}
+    {!! Form::text('days', null, ['class' => 'form-control']) !!}
+
 </div>
 
 <!-- Difficulty Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('difficulty', 'Dificultad:') !!}
-    {!! Form::text('difficulty', null, ['class' => 'form-control']) !!}
+    {!! Form::number('difficulty', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

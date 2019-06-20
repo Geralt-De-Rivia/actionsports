@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoutineTable extends Migration
+class AlterClientActivities1 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateRoutineTable extends Migration
      */
     public function up()
     {
-        Schema::create('routines', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->tinyInteger('days');
-            $table->integer('difficulty');
-            $table->timestamps();
+        Schema::table('client_activities', function(Blueprint $table)
+        {
+            $table->bigInteger('routine_id')->unsigned()->index('fk_client_activities_routine_id');
         });
     }
 
@@ -29,6 +26,9 @@ class CreateRoutineTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('routines');
+        Schema::table('client_activities', function(Blueprint $table)
+        {
+            $table->dropColumn('routine_id');
+        });
     }
 }

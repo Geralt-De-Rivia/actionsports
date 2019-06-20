@@ -4,7 +4,6 @@
 namespace App\Util;
 
 
-use App\Models\ClassModel;
 use App\Models\ClassScheduleModel;
 use App\Models\ClassScheduleRecurrenceModel;
 use Carbon\Carbon;
@@ -41,7 +40,7 @@ class ClassesService
                             $calendarDay->title = $class->class->name . '-' . $class->user->name;
                             $calendarDay->start = $day->setTimeFromTimeString($recurrence->start_time)->toDateTimeLocalString();
                             $calendarDay->end = $day->addMinutes($class->class->minutes)->toDateTimeLocalString();
-                            $calendarDay->color = EloquentPropertyUtil::getPropertyValue($class->class,'color');
+                            $calendarDay->color = EloquentPropertyUtil::getPropertyValue($class->class, 'color');
                             $classesCalendar[] = $calendarDay;
                         }
                     }
@@ -78,6 +77,12 @@ class ClassesService
         ];
     }
 
+    public static function getMonths()
+    {
+        return array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+
+    }
+
     public function classWeek()
     {
         $startDate = Carbon::now()->startOfWeek();
@@ -110,7 +115,7 @@ class ClassesService
                             $calendarDay->day = $this->days()[$recurrence->day];
                             $calendarDay->day_value = $recurrence->day;
                             $calendarDay->user = $class->user;
-                            $calendarDay->class =EloquentPropertyUtil::build($class->class);
+                            $calendarDay->class = EloquentPropertyUtil::build($class->class);
                             $calendarDay->type = $class->class->class_type_id;
                             $classesCalendar[] = $calendarDay;
                         }
@@ -131,8 +136,8 @@ class ClassesService
                 $response[$key] = [];
             }
             $itemsForDay = [];
-            foreach ($days as $keyDay => $valueDay){
-                if (!isset( $itemsForDay[$this->days()[$keyDay]])) {
+            foreach ($days as $keyDay => $valueDay) {
+                if (!isset($itemsForDay[$this->days()[$keyDay]])) {
                     $itemsForDay[$this->days()[$keyDay]] = [];
                 }
                 $itemsForDay[$this->days()[$keyDay]] = $valueDay;

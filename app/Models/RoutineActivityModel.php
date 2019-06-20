@@ -70,7 +70,7 @@ class RoutineActivityModel extends Model
         'id' => 'integer',
         'routine_id' => 'integer',
         'activity_id' => 'integer',
-        'day' => 'boolean'
+        'day' => 'integer'
     ];
 
     /**

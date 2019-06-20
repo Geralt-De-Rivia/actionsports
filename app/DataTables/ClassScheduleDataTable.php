@@ -83,7 +83,6 @@ class ClassScheduleDataTable extends DataTable
             ['title' => 'Inicio', 'data' => 'start_at'],
             ['title' => 'Fin', 'data' => 'end_at'],
             ['title' => 'Estado', 'data' => 'status'],
-            ['title' => 'Recurrencia', 'data' => 'recurrence'],
         ];
     }
 
