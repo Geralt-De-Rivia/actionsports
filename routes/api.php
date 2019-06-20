@@ -62,3 +62,5 @@ Route::get('clients/{clientId}/routines', 'RoutineClientAPIController@index');
 Route::get('clients/{clientId}/routines/next', 'RoutineClientAPIController@next');
 
 Route::get('clients/{clientId}/statistics', 'ClientAPIController@show');
+
+Route::post('clients', 'ClientAPIController@store');

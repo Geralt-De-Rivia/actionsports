@@ -80,4 +80,51 @@ class ClientAPIController extends AppBaseController
         return $this->sendResponse($data, 'Client retrieved successfully');
     }
 
+	/**
+	 * @param CreateClientAPIRequest $request
+	 * @return Response
+	 *
+	 * @SWG\Post(
+	 *      path="/clients",
+	 *      summary="Store a newly created Client in storage",
+	 *      tags={"Client"},
+	 *      description="Store Client",
+	 *      produces={"application/json"},
+	 *      @SWG\Parameter(
+	 *          name="body",
+	 *          in="body",
+	 *          description="Client that should be stored",
+	 *          required=false,
+	 *          @SWG\Schema(ref="#/definitions/Client")
+	 *      ),
+	 *      @SWG\Response(
+	 *          response=200,
+	 *          description="successful operation",
+	 *          @SWG\Schema(
+	 *              type="object",
+	 *              @SWG\Property(
+	 *                  property="success",
+	 *                  type="boolean"
+	 *              ),
+	 *              @SWG\Property(
+	 *                  property="data",
+	 *                  ref="#/definitions/Client"
+	 *              ),
+	 *              @SWG\Property(
+	 *                  property="message",
+	 *                  type="string"
+	 *              )
+	 *          )
+	 *      )
+	 * )
+	 */
+	public function store(CreateClientAPIRequest $request)
+	{
+		$input = $request->all();
+
+		$client = $this->clientRepository->create($input);
+
+		return $this->sendResponse($client->toArray(), 'Client saved successfully');
+	}
+
 }
