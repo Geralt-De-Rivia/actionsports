@@ -21,8 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('activities', 'ActivityAPIController');
 
 
-Route::resource('clients', 'ClientAPIController');
-
 Route::resource('machines', 'MachineAPIController');
 
 Route::resource('news', 'NewAPIController');
@@ -59,4 +57,8 @@ Route::post('login', 'LoginAPIController@login');
 
 Route::get('routine_clients', 'RoutineClientAPIController@index');
 
-Route::resource('clients/{clientId}/routines', 'RoutineClientAPIController');
+Route::get('clients/{clientId}/routines', 'RoutineClientAPIController@index');
+
+Route::get('clients/{clientId}/routines/next', 'RoutineClientAPIController@next');
+
+Route::get('clients/{clientId}/statistics', 'ClientAPIController@show');

@@ -25,7 +25,7 @@ class RoutineClientController extends AppBaseController
 
         $routines = RoutineModel::all()->pluck('name','id');
 
-        $teachers = UserModel::where('role_id','=',2)->get()->pluck('name','id');
+        $teachers = UserModel::all()->pluck('name','id');
 
         View::share('routines', $routines);
 

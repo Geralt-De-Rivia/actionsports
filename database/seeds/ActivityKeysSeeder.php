@@ -32,7 +32,7 @@ class ActivityKeysSeeder extends Seeder
         $key->key = 'force';
         $key->model = '\App\Models\ActivityModel';
         $key->reference = 'activities';
-        $key->type = 'text';
+        $key->type = 'number';
         $key->save();
 
         $key = new \App\Models\KeyModel();
@@ -56,7 +56,7 @@ class ActivityKeysSeeder extends Seeder
         $key->key = 'difficulty';
         $key->model = '\App\Models\ActivityModel';
         $key->reference = 'activities';
-        $key->type = 'text';
+        $key->type = 'number';
         $key->save();
 
         $key = new \App\Models\KeyModel();

@@ -67,4 +67,25 @@ class RoutineClientRepository extends BaseRepository
 
         return $routine;
     }
+
+	public function nextActivity($clientId)
+	{
+
+		$now = Carbon::now();
+		$routine = RoutineClientModel::with('user')
+		                             ->where(function ($query) use ($now) {
+			                             $query->where('start_at', '<=', $now)
+			                                   ->orWhere('end_at', '>=', $now);
+		                             })
+		                             ->where('status', '=', 1)
+		                             ->orderBy('start_at')
+		                             ->get()
+		                             ->first();
+
+		$service = new ClassActivityService();
+
+		$activities = $service->nextActivity($clientId, $routine->routine_id);
+
+		return $activities;
+	}
 }

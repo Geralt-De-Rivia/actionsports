@@ -25,6 +25,23 @@ class EloquentPropertyUtil
 
     }
 
+	public static function getProperties($id, $className)
+	{
+		$properties = DB::table('properties')
+		                ->join('keys', 'keys.id', '=', 'properties.key_id')
+		                ->select('keys.label', 'keys.type', 'keys.key', 'properties.value')
+		                ->where('properties.model_id', '=', $id)
+		                ->where('keys.model', '=', '\\' . $className)
+		                ->get();
+		$model = new \stdClass();
+		foreach ($properties as $property) {
+			$model->{$property->key} = $property->value;
+		}
+
+		return $model;
+
+	}
+
     public static function getProperty(Model $model, $property)
     {
         $properties = DB::table('properties')

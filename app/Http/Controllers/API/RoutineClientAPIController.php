@@ -167,4 +167,12 @@ class RoutineClientAPIController extends AppBaseController
         return $this->sendResponse($routineClient->toArray(), 'Routine Client retrieved successfully');
     }
 
+
+    public function next($clientId){
+
+	    $routineClients = $this->routineClientRepository->nextActivity($clientId);
+
+	    return $this->sendResponse($routineClients->toArray(), 'Routine Clients retrieved successfully');
+    }
+
 }

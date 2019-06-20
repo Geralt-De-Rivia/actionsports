@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\ClientModel;
+use App\Util\EloquentPropertyUtil;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class ClientRepository
@@ -74,5 +76,28 @@ class ClientRepository extends BaseRepository
         }
 
         return $client;
+    }
+
+    public function getClientActivities($clientId){
+
+    	$activities = DB::select("
+				SELECT count(*) as number,ca.activity_id as activity_id
+				FROM `client_activities` ca 
+				INNER JOIN activities a ON (ca.activity_id = a.id) 
+				WHERE ca.client_id = :clientId
+				GROUP BY ca.activity_id",[
+					'clientId' => $clientId
+	    ]);
+    	$response = new \stdClass();
+	    $response->force = 0;
+	    $response->time = 0;
+	    $response->calories = 0;
+    	foreach ($activities as $userActivity){
+			$activity = EloquentPropertyUtil::getProperties($userActivity->activity_id,'App\Models\ActivityModel');
+			$response->force = $activity->force * $userActivity->number;
+			$response->time = $activity->duration * $userActivity->number;
+			$response->calories = $activity->calories * $userActivity->number;
+	    }
+    	return $response;
     }
 }

@@ -110,7 +110,7 @@ class ClassesService
                             $calendarDay = new \stdClass();
                             $calendarDay->title = $class->class->name;
                             $calendarDay->start_date = $day->setTimeFromTimeString($recurrence->start_time);
-                            $calendarDay->start = $day->setTimeFromTimeString($recurrence->start_time)->toTimeString();
+                            $calendarDay->start = $day->setTimeFromTimeString($recurrence->start_time)->format('g:i A');
                             $calendarDay->end = $day->addMinutes($class->class->minutes)->toTimeString();
                             $calendarDay->day = $this->days()[$recurrence->day];
                             $calendarDay->day_value = $recurrence->day;
@@ -124,7 +124,7 @@ class ClassesService
             }
         }
 
-        $items = Collect($classesCalendar)->sortBy('start');
+        $items = Collect($classesCalendar)->sortBy('start_date');
         $sorted = Collect($items)->groupBy('type');
 
         //$sorted = Collect($classesCalendar)->groupBy('day');

@@ -26,7 +26,7 @@ class ClassKeysSeeder extends Seeder
         $key->key = 'difficulty';
         $key->model = '\App\Models\ClassModel';
         $key->reference = 'classes';
-        $key->type = 'text';
+        $key->type = 'number';
         $key->save();
 
 
@@ -60,7 +60,7 @@ class ClassKeysSeeder extends Seeder
         $key->key = 'force';
         $key->model = '\App\Models\ClassModel';
         $key->reference = 'classes';
-        $key->type = 'text';
+        $key->type = 'number';
         $key->save();
 
 
