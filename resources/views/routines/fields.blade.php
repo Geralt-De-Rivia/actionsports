@@ -4,12 +4,20 @@
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Days Field -->
+
 <div class="form-group col-sm-6">
     {!! Form::label('days', 'Días por semana:') !!}
-    {!! Form::text('days', null, ['class' => 'form-control']) !!}
-
+    {!! Form::select('days',[
+    	'0' => 'Domingo',
+    	'1' => 'Lunes',
+    	'2' => 'Martes',
+    	'3' => 'Miercoles',
+    	'4' => 'Jueves',
+    	'5' => 'Viernes',
+    	'6' => 'Sabado',
+    ], null,['class'=>'form-control']) !!}
 </div>
+
 
 <!-- Difficulty Field -->
 <div class="form-group col-sm-6">
@@ -22,3 +30,4 @@
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('routines.index') !!}" class="btn btn-default">Cancelar</a>
 </div>
+

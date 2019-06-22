@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Eloquent as Model;
 
 /**
@@ -156,4 +157,18 @@ class ClassScheduleModel extends Model
     {
         return $this->hasMany(\App\Models\ClassScheduleRecurrenceModel::class,'class_schedule_id','id');
     }
+
+    public function getStartAtAttribute()
+    {
+
+        return Carbon::parse($this->attributes['start_at'])->format('Y-m-d');
+    }
+
+    public function getEndAtAttribute()
+    {
+
+        return Carbon::parse($this->attributes['end_at'])->format('Y-m-d');
+    }
+
+
 }
