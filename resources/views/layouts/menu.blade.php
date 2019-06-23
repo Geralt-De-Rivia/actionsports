@@ -42,3 +42,7 @@
     <a href="{!! route('routineClients.index') !!}"><i class="fa fa-edit"></i><span>Rutinas de clientes</span></a>
 </li>
 
+<li class="{{ Request::is('routines_activity*') ? 'active' : '' }}">
+    <a href="{!! route('routines_activity.index') !!}"><i class="fa fa-edit"></i><span>Rutinas actividades</span></a>
+</li>
+

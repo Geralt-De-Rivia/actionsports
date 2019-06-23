@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @SWG\Definition(
@@ -84,6 +85,10 @@ class RoutineActivityModel extends Model
         'day' => 'required'
     ];
 
+    public $appends = [
+        'day_routine' 
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
@@ -98,5 +103,34 @@ class RoutineActivityModel extends Model
     public function routine()
     {
         return $this->belongsTo(\App\Models\RoutineModel::class, 'routine_id');
+    }
+     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function getDayRoutineAttribute()
+    {
+        switch($this->attributes['day']){
+                    case 0:
+                        return 'DOMINGO';
+                    break;
+                    case 1:
+                        return 'LUNES';
+                    break;
+                    case 2:
+                        return 'MARTES';
+                    break;
+                    case 3:
+                        return 'MIERCOLES';
+                    break;
+                    case 4:
+                        return 'JUEVES';
+                    break;
+                    case 5:
+                        return 'VIERNES';
+                    break;
+                    case 6:
+                        return 'SABADO';
+                    break;
+                }
     }
 }

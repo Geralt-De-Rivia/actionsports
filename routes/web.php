@@ -40,3 +40,5 @@ Route::resource('class_schedules', 'ClassScheduleController');
 Route::resource('keys', 'KeyController');
 
 Route::resource('routineClients', 'RoutineClientController');
+
+Route::resource('routines_activity', 'RoutinesActivityController');
