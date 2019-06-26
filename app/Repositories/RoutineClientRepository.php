@@ -2,10 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Models\RoutineActivityModel;
 use App\Models\RoutineClientModel;
 use App\Util\ClassActivityService;
-use App\Util\EloquentPropertyUtil;
 use Carbon\Carbon;
 
 /**
@@ -54,10 +52,15 @@ class RoutineClientRepository extends BaseRepository
                 $query->where('start_at', '<=', $now)
                     ->orWhere('end_at', '>=', $now);
             })
+            ->where('client_id', '=', $clientId)
             ->where('status', '=', 1)
             ->orderBy('start_at')
             ->get()
             ->first();
+
+        if (empty($routine)) {
+            return null;
+        }
 
         $service = new ClassActivityService();
 
@@ -65,27 +68,32 @@ class RoutineClientRepository extends BaseRepository
 
         $routine->items = $activities;
 
-        return $routine;
+        return $routine->toArray();
     }
 
-	public function nextActivity($clientId)
-	{
+    public function nextActivity($clientId)
+    {
 
-		$now = Carbon::now();
-		$routine = RoutineClientModel::with('user')
-		                             ->where(function ($query) use ($now) {
-			                             $query->where('start_at', '<=', $now)
-			                                   ->orWhere('end_at', '>=', $now);
-		                             })
-		                             ->where('status', '=', 1)
-		                             ->orderBy('start_at')
-		                             ->get()
-		                             ->first();
+        $now = Carbon::now();
+        $routine = RoutineClientModel::with('user')
+            ->where(function ($query) use ($now) {
+                $query->where('start_at', '<=', $now)
+                    ->orWhere('end_at', '>=', $now);
+            })
+            ->where('status', '=', 1)
+            ->where('client_id', '=', $clientId)
+            ->orderBy('start_at')
+            ->get()
+            ->first();
 
-		$service = new ClassActivityService();
+        if (empty($routine)) {
+            return null;
+        }
 
-		$activities = $service->nextActivity($clientId, $routine->routine_id);
+        $service = new ClassActivityService();
 
-		return $activities;
-	}
+        $activities = $service->nextActivity($clientId, $routine->routine_id);
+
+        return $activities->toArray();
+    }
 }

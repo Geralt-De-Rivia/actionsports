@@ -59,7 +59,7 @@ Route::get('routine_clients', 'RoutineClientAPIController@index');
 
 Route::get('clients/{clientId}/routines', 'RoutineClientAPIController@index');
 
-//Route::post('clients/{clientId}/routines', 'RoutineClientAPIController@store');
+Route::post('clients/{clientId}/routines', 'RoutineClientAPIController@store');
 
 Route::get('clients/{clientId}/routines/next', 'RoutineClientAPIController@next');
 

@@ -64,7 +64,7 @@ class RoutineClientAPIController extends AppBaseController
     {
         $routineClients = $this->routineClientRepository->currentRoutine($clientId);
 
-        return $this->sendResponse($routineClients->toArray(), 'Routine Clients retrieved successfully');
+        return $this->sendResponse($routineClients, 'Routine Clients retrieved successfully');
     }
 
     /**
@@ -172,7 +172,7 @@ class RoutineClientAPIController extends AppBaseController
 
 	    $routineClients = $this->routineClientRepository->nextActivity($clientId);
 
-	    return $this->sendResponse($routineClients->toArray(), 'Routine Clients retrieved successfully');
+	    return $this->sendResponse($routineClients, 'Routine Clients retrieved successfully');
     }
 
 }

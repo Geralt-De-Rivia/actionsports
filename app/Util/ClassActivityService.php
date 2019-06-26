@@ -27,16 +27,17 @@ class ClassActivityService {
 		if ( ! empty( $routine ) ) {
 
 
-			$activities = RoutineActivityModel::all();
+			$activities = RoutineActivityModel::where( 'routine_id', '=', $routineId)
+			                                  ->get();
 
-			$totalActivitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routine->id )
+			$totalActivitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routineId)
 			                                               ->where( 'client_id', '=', $clientId )
 			                                               ->get()
 			                                               ->count();
 
 			$rounds                   = intval( $totalActivitiesCompleted / $activities->count() );
 
-			$activitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routine->id )
+			$activitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routineId )
 			                                          ->where( 'client_id', '=', $clientId )
 			                                          ->orderBy( 'created_at', 'desc' )
 			                                          ->skip( $activities->count() * $rounds )
@@ -79,15 +80,16 @@ class ClassActivityService {
 		$nextActivity = null;
 		if ( ! empty( $routine ) ) {
 
-			$activities = RoutineActivityModel::all();
+			$activities = RoutineActivityModel::where( 'routine_id', '=', $routineId )
+			                                  ->get();
 
-			$totalActivitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routine->id )
+			$totalActivitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routineId )
 			                                               ->where( 'client_id', '=', $clientId )
 			                                               ->get()
 			                                               ->count();
 			$rounds                   = intval( $totalActivitiesCompleted / $activities->count() );
 
-			$activitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routine->id )
+			$activitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routineId)
 			                                          ->where( 'client_id', '=', $clientId )
 			                                          ->orderBy( 'created_at', 'desc' )
 			                                          ->skip( $activities->count() * $rounds )
