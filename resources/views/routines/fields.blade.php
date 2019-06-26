@@ -8,13 +8,13 @@
 <div class="form-group col-sm-6">
     {!! Form::label('days', 'Días por semana:') !!}
     {!! Form::select('days',[
-    	'0' => 'Domingo',
-    	'1' => 'Lunes',
-    	'2' => 'Martes',
-    	'3' => 'Miercoles',
-    	'4' => 'Jueves',
-    	'5' => 'Viernes',
-    	'6' => 'Sabado',
+    	'1' => '1',
+    	'2' => '2',
+    	'3' => '3',
+    	'4' => '4',
+    	'5' => '5',
+    	'6' => '6',
+    	'7' => '7',
     ], null,['class'=>'form-control']) !!}
 </div>
 

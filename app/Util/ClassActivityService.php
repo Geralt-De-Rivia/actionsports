@@ -10,6 +10,7 @@ use App\Models\RoutineActivityModel;
 use App\Models\RoutineClientModel;
 
 class ClassActivityService {
+
 	public function getRoundActivity( $clientId, $routineId ) {
 
 		$routine = RoutineClientModel::with( 'user' )
@@ -25,13 +26,14 @@ class ClassActivityService {
 		$response->nextActivity  = null;
 		if ( ! empty( $routine ) ) {
 
-			$activities = RoutineActivityModel::where( 'routine_id', '=', $routine->id )
-			                                  ->get();
+
+			$activities = RoutineActivityModel::all();
 
 			$totalActivitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routine->id )
 			                                               ->where( 'client_id', '=', $clientId )
 			                                               ->get()
 			                                               ->count();
+
 			$rounds                   = intval( $totalActivitiesCompleted / $activities->count() );
 
 			$activitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routine->id )
@@ -77,8 +79,7 @@ class ClassActivityService {
 		$nextActivity = null;
 		if ( ! empty( $routine ) ) {
 
-			$activities = RoutineActivityModel::where( 'routine_id', '=', $routine->id )
-			                                  ->get();
+			$activities = RoutineActivityModel::all();
 
 			$totalActivitiesCompleted = ClientActivityModel::where( 'routine_id', '=', $routine->id )
 			                                               ->where( 'client_id', '=', $clientId )
