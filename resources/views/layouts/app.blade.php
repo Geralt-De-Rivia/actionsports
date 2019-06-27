@@ -155,22 +155,6 @@
 <script src="{{asset('fullcalendar/packages/core/main.js')}}" type="text/javascript"></script>
 <script src="{{asset('fullcalendar/packages/daygrid/main.js')}}" type="text/javascript"></script>
 
-<script type="text/javascript">
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-              plugins: [ 'dayGrid' ]
-            });
-
-            calendar.render();
-        });
-
-    
-    </script>
-
-
 @yield('scripts')
 </body>
 </html>

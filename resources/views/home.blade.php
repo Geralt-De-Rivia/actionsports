@@ -186,15 +186,16 @@
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 events: {
-                url: '/api/calendar',
-                method: 'GET',
-                failure: function() {
-                  alert('there was an error while fetching events!');
+                    url: '/api/calendar',
+                    method: 'GET',
+                    failure: function() {
+                        alert('No se encontraron eventos');
+                    },
+                    color: 'yellow',   // a non-ajax option
+                    textColor: 'black' // a non-ajax option
                 },
-                color: 'yellow',   // a non-ajax option
-                textColor: 'black' // a non-ajax option
-              },
-              plugins: [ 'dayGrid' ]
+                plugins: [ 'dayGrid' ],
+                locale: 'es',
             });
 
             calendar.render();
