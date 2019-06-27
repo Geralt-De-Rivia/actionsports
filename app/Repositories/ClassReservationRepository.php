@@ -2,13 +2,14 @@
 
 namespace App\Repositories;
 
+use App\Models\ClassReservation;
 use App\Models\ClassReservationModel;
 use App\Repositories\BaseRepository;
 
 /**
  * Class ClassReservationRepository
  * @package App\Repositories
- * @version June 10, 2019, 10:37 pm UTC
+ * @version June 27, 2019, 5:48 pm -05
 */
 
 class ClassReservationRepository extends BaseRepository

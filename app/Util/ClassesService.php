@@ -19,19 +19,17 @@ class ClassesService
         $period = CarbonPeriod::create($startDate, $endDate);
         $classes = ClassScheduleModel::with('class')->with('user')->with('classScheduleRecurrences')
             ->where(function ($query) use ($startDate, $endDate) {
-                $query->where('start_at', '<=', $startDate)
-                    ->orWhere('start_at', '<=', $endDate)
+                $query->where('start_at', '<=', $endDate)
                     ->orWhereNull('start_at');
             })->where(function ($query) use ($startDate, $endDate) {
                 $query->where('end_at', '>=', $startDate)
-                    ->orWhere('end_at', '<=', $endDate)
                     ->orWhereNull('end_at');
             })->where('status', '=', 1)
             ->get();
         $classesCalendar = array();
         foreach ($period as $date) {
             foreach ($classes as $class) {
-                if (($date->lte(Carbon::parse($class->start_at) || $class->start_at == null)) && ($date->gte(Carbon::parse($class->end_at) || $class->end_at == null))) {
+                if ((Carbon::parse($class->start_at)->lessThanOrEqualTo($date) || $class->start_at == null) && (Carbon::parse($class->end_at)->greaterThanOrEqualTo($date) || $class->end_at == null)) {
                     $classScheduleRecurrences = ClassScheduleRecurrenceModel::where('class_schedule_id', '=', $class->id)->get();
                     foreach ($classScheduleRecurrences as $recurrence) {
                         if ($date->dayOfWeek == $recurrence->day) {
@@ -88,21 +86,19 @@ class ClassesService
         $startDate = Carbon::now()->startOfWeek();
         $endDate = Carbon::now()->endOfWeek();
         $period = CarbonPeriod::create($startDate, $endDate);
-        $classes = ClassScheduleModel::with('user')
+        $classes = ClassScheduleModel::with('class')->with('user')->with('classScheduleRecurrences')
             ->where(function ($query) use ($startDate, $endDate) {
-                $query->where('start_at', '<=', $startDate)
-                    ->orWhere('start_at', '<=', $endDate)
+                $query->where('start_at', '<=', $endDate)
                     ->orWhereNull('start_at');
             })->where(function ($query) use ($startDate, $endDate) {
                 $query->where('end_at', '>=', $startDate)
-                    ->orWhere('end_at', '<=', $endDate)
                     ->orWhereNull('end_at');
             })->where('status', '=', 1)
             ->get();
         $classesCalendar = array();
         foreach ($period as $date) {
             foreach ($classes as $class) {
-                if (($date->lte(Carbon::parse($class->start_at) || $class->start_at == null)) && ($date->gte(Carbon::parse($class->end_at) || $class->end_at == null))) {
+                if ((Carbon::parse($class->start_at)->lessThanOrEqualTo($date) || $class->start_at == null) && (Carbon::parse($class->end_at)->greaterThanOrEqualTo($date) || $class->end_at == null)) {
                     $classScheduleRecurrences = ClassScheduleRecurrenceModel::where('class_schedule_id', '=', $class->id)->get();
                     foreach ($classScheduleRecurrences as $recurrence) {
                         if ($date->dayOfWeek == $recurrence->day) {

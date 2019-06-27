@@ -153,7 +153,7 @@ class ClientModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function clientStatus()
+    public function client_status()
     {
         return $this->belongsTo(\App\Models\ClientStatusModel::class, 'client_status_id');
     }
@@ -161,7 +161,7 @@ class ClientModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function classReservations()
+    public function class_reservations()
     {
         return $this->hasMany(\App\Models\ClassReservationModel::class);
     }
@@ -169,7 +169,7 @@ class ClientModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function clientActivities()
+    public function client_activities()
     {
         return $this->hasMany(\App\Models\ClientActivityModel::class);
     }
@@ -177,7 +177,7 @@ class ClientModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function routineClients()
+    public function routine_clients()
     {
         return $this->hasMany(\App\Models\RoutineClientModel::class);
     }

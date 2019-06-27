@@ -42,3 +42,5 @@ Route::resource('keys', 'KeyController');
 Route::resource('routineClients', 'RoutineClientController');
 
 Route::resource('routines_activity', 'RoutinesActivityController');
+
+Route::resource('classReservations', 'ClassReservationController');

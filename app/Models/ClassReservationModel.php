@@ -99,8 +99,7 @@ class ClassReservationModel extends Model
         'class_schedule_id' => 'required',
         'day' => 'required',
         'start_time' => 'required',
-        'date' => 'required',
-        'status' => 'required'
+        'date' => 'required'
     ];
 
     /**

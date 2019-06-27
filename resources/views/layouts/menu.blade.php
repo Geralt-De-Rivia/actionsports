@@ -46,3 +46,7 @@
     <a href="{!! route('routines_activity.index') !!}"><i class="fa fa-edit"></i><span>Rutinas actividades</span></a>
 </li>
 
+<li class="{{ Request::is('classReservations*') ? 'active' : '' }}">
+    <a href="{!! route('classReservations.index') !!}"><i class="fa fa-edit"></i><span>Class Reservations</span></a>
+</li>
+

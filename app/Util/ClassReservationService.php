@@ -20,12 +20,10 @@ class ClassReservationService
         $period = CarbonPeriod::create($startDate, $endDate);
         $classes = ClassScheduleModel::with('class')->with('user')->with('classScheduleRecurrences')
             ->where(function ($query) use ($startDate, $endDate) {
-                $query->where('start_at', '<=', $startDate)
-                    ->orWhere('start_at', '<=', $endDate)
+                $query->where('start_at', '<=', $endDate)
                     ->orWhereNull('start_at');
             })->where(function ($query) use ($startDate, $endDate) {
                 $query->where('end_at', '>=', $startDate)
-                    ->orWhere('end_at', '<=', $endDate)
                     ->orWhereNull('end_at');
             })->where('status', '=', 1)
             ->where('class_id', '=', $classId)
@@ -50,7 +48,7 @@ class ClassReservationService
             }
         }
 
-        return $classesCalendar;
+        return collect($classesCalendar)->unique('date')->values()->all();
 
     }
 
@@ -75,31 +73,37 @@ class ClassReservationService
 
         $classesCalendar = array();
         foreach ($classes as $class) {
-                $classScheduleRecurrences = ClassScheduleRecurrenceModel::where('class_schedule_id', '=', $class->id)->get();
-                foreach ($classScheduleRecurrences as $recurrence) {
-                    $day = Carbon::parse($startDate->toDateString());
-                    $day->setTimeFromTimeString($recurrence->start_time);
-                    if ($startDate->dayOfWeek == $recurrence->day && $day->greaterThan(Carbon::now())) {
-                        $count = ClassReservationModel::where('class_schedule_id','=',$class->id)
-                            ->where('date','=',$startDate)
-                            ->where('start_time','=',$day->toTimeString())
-                            ->get()
-                            ->count();
-                        $calendarDay = new \stdClass();
-                        $calendarDay->day = $recurrence->day;
-                        $calendarDay->start = $day->toTimeString();
-                        $calendarDay->start_format = $day->format('g:i A');
-                        $calendarDay->quota_min = $class->quota_min;
-                        $calendarDay->quota_max = $class->quota_max;
-                        $calendarDay->reserved = $count;
-                        $calendarDay->available = $class->quota_max-$count;
-                        $classesCalendar[] = $calendarDay;
-                    }
+            $classScheduleRecurrences = ClassScheduleRecurrenceModel::where('class_schedule_id', '=', $class->id)->get();
+            foreach ($classScheduleRecurrences as $recurrence) {
+                $day = Carbon::parse($startDate->toDateString());
+                $day->setTimeFromTimeString($recurrence->start_time);
+                if ($startDate->dayOfWeek == $recurrence->day && $day->greaterThan(Carbon::now())) {
+                    $count = ClassReservationModel::where('class_schedule_id', '=', $class->id)
+                        ->where('date', '=', $startDate)
+                        ->where('start_time', '=', $day->toTimeString())
+                        ->get()
+                        ->count();
+                    $calendarDay = new \stdClass();
+                    $calendarDay->index = count($classesCalendar);
+                    $calendarDay->day = $recurrence->day;
+                    $calendarDay->start_format = $day->format('g:i A');
+                    $calendarDay->quota_min = $class->quota_min;
+                    $calendarDay->quota_max = $class->quota_max;
+                    $calendarDay->reserved = $count;
+                    $calendarDay->available = $class->quota_max - $count;
+                    $calendarDay->date = $requestDate;
+                    $calendarDay->time = $day->toTimeString();
+                    $calendarDay->class_schedule_id = $class->id;
+                    $classesCalendar[] = $calendarDay;
                 }
+            }
         }
 
 
-        return $classesCalendar;
+        return collect($classesCalendar)->sortBy('time')->values()->all();
 
     }
+
+
+
 }

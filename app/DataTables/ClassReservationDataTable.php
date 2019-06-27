@@ -2,11 +2,12 @@
 
 namespace App\DataTables;
 
-use App\Models\ClientModel;
+use App\Models\ClassReservation;
+use App\Models\ClassReservationModel;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class ClientDataTable extends DataTable
+class ClassReservationDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,20 +19,20 @@ class ClientDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'clients.datatables_actions');
+        return $dataTable->addColumn('action', 'class_reservations.datatables_actions')
+            ->addColumn( 'client_dni', 'class_reservations.datatables_actions_client' )
+            ->rawColumns( [ 'client_dni', 'action' ] );
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\ClientModel $model
+     * @param \App\Models\ClassReservation $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(ClientModel $model)
+    public function query(ClassReservationModel $model)
     {
-        return $model
-            ->with('client_status')
-            ->newQuery();
+        return $model->with('client')->newQuery();
     }
 
     /**
@@ -46,7 +47,6 @@ class ClientDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'language' => [ 'url' => url( '/lang/Spanish.json' ) ],
                 'dom'       => 'Bfrtip',
                 'stateSave' => true,
                 'order'     => [[0, 'desc']],
@@ -68,18 +68,13 @@ class ClientDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'dni',
-            ['title' => 'Nombre', 'data' => 'name'],
-            ['title' => 'Apellido', 'data' => 'last_name'],
-            ['title' => 'Número Telefono', 'data' => 'phone_number'],
-            'email',
-            ['title' => 'Código', 'data' => 'code'],
-            //'image_url',
-            //['title' => 'Número Membresia', 'data' => 'membership_number'],
-            ['title' => 'Estado Cliente', 'data' => 'client_status.name', 'searchable' => false]
-            //'birth_date',
-            //'email_verified_at',
-            //'password'
+            ['title' => 'Dni cliente', 'data' => 'client_dni'],
+            ['title' => 'Nombre cliente', 'data' => 'client.name'],
+            'class_schedule_id',
+            'day',
+            'start_time',
+            'date',
+            'status'
         ];
     }
 
@@ -90,6 +85,6 @@ class ClientDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'clientsdatatable_' . time();
+        return 'class_reservationsdatatable_' . time();
     }
 }

@@ -107,8 +107,6 @@ class ClassScheduleModel extends Model
         'user_id' => 'integer',
         'quota_min' => 'integer',
         'quota_max' => 'integer',
-        'start_at' => 'date',
-        'end_at' => 'date',
         'status' => 'boolean',
         'recurrence' => 'boolean'
     ];
@@ -161,12 +159,18 @@ class ClassScheduleModel extends Model
     public function getStartAtAttribute()
     {
 
+        if(is_null($this->attributes['start_at'])){
+            return null;
+        }
         return Carbon::parse($this->attributes['start_at'])->format('Y-m-d');
     }
 
     public function getEndAtAttribute()
     {
 
+        if(is_null($this->attributes['end_at'])){
+            return null;
+        }
         return Carbon::parse($this->attributes['end_at'])->format('Y-m-d');
     }
 

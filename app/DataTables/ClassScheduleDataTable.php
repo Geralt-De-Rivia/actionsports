@@ -76,6 +76,7 @@ class ClassScheduleDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            ['title' => '#', 'data' => 'id'],
             ['title' => 'Clase', 'data' => 'class.name'],
             ['title' => 'Nombre', 'data' => 'user.name'],
             ['title' => 'Cantidad Min', 'data' => 'quota_min'],

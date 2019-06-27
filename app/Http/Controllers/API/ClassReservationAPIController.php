@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\CreateClassReservationAPIRequest;
 use App\Http\Requests\API\UpdateClassReservationAPIRequest;
 use App\Models\ClassReservationModel;
 use App\Repositories\ClassReservationRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class ClassReservationController
  * @package App\Http\Controllers\API
  */
-
 class ClassReservationAPIController extends AppBaseController
 {
     /** @var  ClassReservationRepository */
@@ -108,11 +107,16 @@ class ClassReservationAPIController extends AppBaseController
      */
     public function store(CreateClassReservationAPIRequest $request)
     {
-        $input = $request->all();
+        try {
+            $input = $request->all();
 
-        $classReservation = $this->classReservationRepository->create($input);
+            $classReservation = $this->classReservationRepository->create($input);
 
-        return $this->sendResponse($classReservation->toArray(), 'Class Reservation saved successfully');
+            return $this->sendResponse($classReservation->toArray(), 'Class Reservation saved successfully');
+        } catch (\Exception $exception) {
+            return $this->sendError($exception->getMessage(), 200);
+        }
+
     }
 
     /**
