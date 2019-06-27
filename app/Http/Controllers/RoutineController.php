@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\RoutineDataTable;
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests;
 use App\Http\Requests\CreateRoutineRequest;
 use App\Http\Requests\UpdateRoutineRequest;
+use App\Models\ActivityModel;
 use App\Repositories\RoutineRepository;
 use Flash;
-use App\Http\Controllers\AppBaseController;
 use Response;
 
 class RoutineController extends AppBaseController
@@ -39,7 +40,10 @@ class RoutineController extends AppBaseController
      */
     public function create()
     {
-        return view('routines.create');
+        $activitys = ActivityModel::all()->pluck('name','id');
+
+        return view('routines.create')
+            ->with('activitys', $activitys);
     }
 
     /**
@@ -52,6 +56,8 @@ class RoutineController extends AppBaseController
     public function store(CreateRoutineRequest $request)
     {
         $input = $request->all();
+
+        //dd($request->all());
 
         $routine = $this->routineRepository->create($input);
 
@@ -89,6 +95,7 @@ class RoutineController extends AppBaseController
      */
     public function edit($id)
     {
+        $activitys = ActivityModel::all()->pluck('name','id');
         $routine = $this->routineRepository->find($id);
 
         if (empty($routine)) {
@@ -97,7 +104,8 @@ class RoutineController extends AppBaseController
             return redirect(route('routines.index'));
         }
 
-        return view('routines.edit')->with('routine', $routine);
+        return view('routines.edit')->with('routine', $routine)
+            ->with('activitys', $activitys);
     }
 
     /**

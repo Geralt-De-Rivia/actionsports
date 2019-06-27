@@ -1,8 +1,8 @@
 {!! Form::open(['route' => ['class_schedules.destroy', $id], 'method' => 'delete']) !!}
 <div class='btn-group'>
-    <a href="{{ route('class_schedules.show', $id) }}" class='btn btn-default btn-xs'>
+    {{-- <a href="{{ route('class_schedules.show', $id) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-eye-open"></i>
-    </a>
+    </a> --}}
     <a href="{{ route('class_schedules.edit', $id) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-edit"></i>
     </a>

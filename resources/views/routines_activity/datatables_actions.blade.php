@@ -1,8 +1,8 @@
 {!! Form::open(['route' => ['routines_activity.destroy', $id], 'method' => 'delete']) !!}
 <div class='btn-group'>
-    <a href="{{ route('routines_activity.show', $id) }}" class='btn btn-default btn-xs'>
+    {{-- <a href="{{ route('routines_activity.show', $id) }}" class='btn btn-default btn-xs'>
         <i class="fa fa-eye"></i>
-    </a>
+    </a> --}}
     <a href="{{ route('routines_activity.edit', $id) }}" class='btn btn-default btn-xs'>
         <i class="fa fa-edit"></i>
     </a>
