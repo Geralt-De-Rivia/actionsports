@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dcb82ae-cd69-49f2-ba05-d7e9ae336c5e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/ClassScheduleDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/ClassScheduleDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/ClientDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/ClientDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/ClassReservationAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/ClassReservationAPIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ClassReservationModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ClassReservationModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ClassScheduleModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ClassScheduleModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ClientModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ClientModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ClassReservationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClassReservationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Util/ClassReservationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Util/ClassReservationService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Util/ClassesService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Util/ClassesService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/paper-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/paper-dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/paper-dashboard.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/paper-dashboard.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clients/datatables_actions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clients/datatables_actions.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clients/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clients/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clients/show_fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clients/show_fields.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/datatables_css.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/datatables_css.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/class_reservations/datatables_actions_client.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,11 +15,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/DataTables/ClassReservationDataTable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="70" column="60" selection-start-line="70" selection-start-column="60" selection-end-line="70" selection-end-column="60" />
+            <state relative-caret-position="201">
+              <caret line="22" column="84" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/class_reservations/datatables_actions_client.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="63" selection-start-column="63" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -91,7 +81,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/seeds/ClientStatusSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_10_210647_create_class_schedules_table.php" />
         <option value="$PROJECT_DIR$/resources/views/users/fields.blade.php" />
@@ -142,6 +131,7 @@
         <option value="$PROJECT_DIR$/resources/views/clients/show.blade.php" />
         <option value="$PROJECT_DIR$/app/DataTables/ClientDataTable.php" />
         <option value="$PROJECT_DIR$/app/DataTables/ClassReservationDataTable.php" />
+        <option value="$PROJECT_DIR$/resources/views/class_reservations/datatables_actions_client.blade.php" />
       </list>
     </option>
   </component>
@@ -447,12 +437,12 @@
       <workItem from="1561498036088" duration="2035000" />
       <workItem from="1561588150000" duration="3677000" />
       <workItem from="1561656391666" duration="17000" />
-      <workItem from="1561668313490" duration="8089000" />
+      <workItem from="1561668313490" duration="8198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101238000" />
+    <option name="totallyTimeSpent" value="101347000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
@@ -485,13 +475,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_19_175733_alter_client_activities_1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/ClientActivityModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="954">
@@ -856,8 +839,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/DataTables/ClassReservationDataTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="70" column="60" selection-start-line="70" selection-start-column="60" selection-end-line="70" selection-end-column="60" />
+        <state relative-caret-position="201">
+          <caret line="22" column="84" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/class_reservations/datatables_actions_client.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="63" selection-start-column="63" selection-end-column="63" />
         </state>
       </provider>
     </entry>

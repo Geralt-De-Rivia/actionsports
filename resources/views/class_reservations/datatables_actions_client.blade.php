@@ -1,0 +1,1 @@
+<a href="/clients/{{$model->client->id}}">{{$model->client->dni}}</a>
