@@ -73,7 +73,8 @@ class ActivityDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['title' => 'Nombre', 'data' => 'name'],
+	        ['title' => 'id', 'data' => 'id'],
+	        ['title' => 'Nombre', 'data' => 'name'],
             ['title' => 'Estado', 'data' => 'status'],
         ];
     }

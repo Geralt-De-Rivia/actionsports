@@ -68,7 +68,8 @@ class ClientDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'dni',
+	        ['title' => 'id', 'data' => 'id'],
+	        'dni',
             ['title' => 'Nombre', 'data' => 'name'],
             ['title' => 'Apellido', 'data' => 'last_name'],
             ['title' => 'Número Telefono', 'data' => 'phone_number'],

@@ -15,7 +15,7 @@ class AddFkClassScheduleRecurencesTable extends Migration
 
     {
         Schema::table('class_schedule_recurrences', function (Blueprint $table) {
-            $table->foreign('class_schedule_id', 'fk_class_schedule_recurrences_class_schedules')->references('id')->on('class_schedules')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('class_schedule_id', 'fk_class_schedule_recurrences_class_schedules')->references('id')->on('class_schedules')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 

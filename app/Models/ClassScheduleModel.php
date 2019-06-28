@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @SWG\Definition(
@@ -77,8 +78,10 @@ use Eloquent as Model;
  */
 class ClassScheduleModel extends Model
 {
+	use SoftDeletes;
 
-    public $table = 'class_schedules';
+
+	public $table = 'class_schedules';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';

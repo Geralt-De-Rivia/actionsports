@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @SWG\Definition(
@@ -59,7 +60,9 @@ use Eloquent as Model;
 class ClassReservationModel extends Model
 {
 
-    public $table = 'class_reservations';
+	use SoftDeletes;
+
+	public $table = 'class_reservations';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -105,7 +108,7 @@ class ClassReservationModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function classSchedule()
+    public function class_schedule()
     {
         return $this->belongsTo(\App\Models\ClassScheduleModel::class, 'class_schedule_id');
     }

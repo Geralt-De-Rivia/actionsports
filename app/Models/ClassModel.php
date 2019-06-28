@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -59,7 +60,9 @@ use Illuminate\Support\Facades\DB;
 class ClassModel extends Model
 {
 
-    public $table = 'classes';
+	use SoftDeletes;
+
+	public $table = 'classes';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -104,7 +107,7 @@ class ClassModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function classType()
+    public function class_type()
     {
         return $this->belongsTo(\App\Models\ClassTypeModel::class, 'class_type_id');
     }

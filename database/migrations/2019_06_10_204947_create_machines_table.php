@@ -18,6 +18,7 @@ class CreateMachinesTable extends Migration
             $table->string('name');
             $table->boolean('status')->default(true);
             $table->timestamps();
+	        $table->softDeletes();
         });
     }
 

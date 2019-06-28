@@ -50,7 +50,7 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="#pablo">Action Sport Administrador</a>
+                    <a class="navbar-brand" href="#pablo">Bienvenido {!! Auth::user()->name !!}</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -58,7 +58,7 @@
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                    <form>
+                   {{-- <form>
                         <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Search...">
                             <div class="input-group-append">
@@ -67,16 +67,16 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </form>--}}
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+                       {{-- <li class="nav-item">
                             <a class="nav-link btn-magnify" href="#pablo">
                                 <i class="nc-icon nc-layout-11"></i>
                                 <p>
                                     <span class="d-lg-none d-md-block">Stats</span>
                                 </p>
                             </a>
-                        </li>
+                        </li>--}}
                         <li class="nav-item btn-rotate dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="nc-icon nc-bell-55"></i>
@@ -85,12 +85,12 @@
                                 </p>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
+                              {{--  <a class="dropdown-item" href="#">Action</a>
                                 <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="#">Something else here</a>--}}
                                 <a href="{!! url('/logout') !!}" class="btn btn-default btn-flat"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Sign out
+                                    Salir
                                 </a>
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST"
                                       style="display: none;">
@@ -98,14 +98,14 @@
                                 </form>
                             </div>
                         </li>
-                        <li class="nav-item">
+                        {{--<li class="nav-item">
                             <a class="nav-link btn-rotate" href="#pablo">
                                 <i class="nc-icon nc-settings-gear-65"></i>
                                 <p>
                                     <span class="d-lg-none d-md-block">{!! Auth::user()->name !!}</span>
                                 </p>
                             </a>
-                        </li>
+                        </li>--}}
                     </ul>
                 </div>
             </div>

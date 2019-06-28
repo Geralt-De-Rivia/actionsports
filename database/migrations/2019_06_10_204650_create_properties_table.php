@@ -19,6 +19,7 @@ class CreatePropertiesTable extends Migration
             $table->bigInteger('model_id')->unsigned();
             $table->string('value',300);
             $table->timestamps();
+	        $table->softDeletes();
         });
     }
 

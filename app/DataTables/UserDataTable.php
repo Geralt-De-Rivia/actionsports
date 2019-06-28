@@ -75,7 +75,8 @@ class UserDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['title' => 'Nombre', 'data' => 'name'],
+	        ['title' => 'id', 'data' => 'id'],
+	        ['title' => 'Nombre', 'data' => 'name'],
             ['title' => 'Correo Electronico', 'data' => 'email'],
             ['title' => 'Rol', 'data' => 'role.name'],
             ['title' => 'Estado', 'data' => 'status'],

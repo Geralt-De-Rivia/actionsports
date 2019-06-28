@@ -20,6 +20,7 @@ class CreateKeysTable extends Migration
             $table->string('model',300);
             $table->string('reference',300);
             $table->timestamps();
+	        $table->softDeletes();
         });
     }
 

@@ -22,6 +22,7 @@ class CreateClassReservationsTable extends Migration
             $table->date('date');
             $table->enum('status', ['pending', 'canceled', 'finished', 'unfulfilled']);
             $table->timestamps();
+	        $table->softDeletes();
         });
     }
 

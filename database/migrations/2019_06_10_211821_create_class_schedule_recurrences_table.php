@@ -19,6 +19,7 @@ class CreateClassScheduleRecurrencesTable extends Migration
             $table->tinyInteger('day');
             $table->time('start_time');
             $table->timestamps();
+	        $table->softDeletes();
         });
     }
 

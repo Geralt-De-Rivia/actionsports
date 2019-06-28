@@ -21,6 +21,7 @@ class CreateClassesTable extends Migration
             $table->boolean('reservable')->default(true);
             $table->bigInteger('class_type_id')->unsigned();
             $table->timestamps();
+	        $table->softDeletes();
         });
     }
 

@@ -26,6 +26,8 @@ class UpdateClassReservationRequest extends FormRequest
      */
     public function rules()
     {
-        return ClassReservationModel::$rules;
+        return [
+        	'status' => 'required'
+        ];
     }
 }

@@ -19,6 +19,7 @@ class CreateRoutineActivitiesTable extends Migration
             $table->bigInteger('activity_id')->unsigned()->index('fk_routine_activities_activities');
             $table->tinyInteger('day');
             $table->timestamps();
+	        $table->softDeletes();
         });
     }
 

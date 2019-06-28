@@ -25,7 +25,10 @@ class ClassScheduleDataTable extends DataTable
                     ? 'Activo'
                     : 'Inactivo';
                 return $status;
-            });
+            })
+	        ->editColumn('id', function($classSchedule) {
+		        return $classSchedule->id;
+	        });
     }
 
     /**
@@ -76,11 +79,11 @@ class ClassScheduleDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['title' => '#', 'data' => 'id'],
-            ['title' => 'Clase', 'data' => 'class.name'],
-            ['title' => 'Nombre', 'data' => 'user.name'],
+	        ['title' => 'id', 'data' => 'id'],
             ['title' => 'Cantidad Min', 'data' => 'quota_min'],
             ['title' => 'Cantidad Max', 'data' => 'quota_max'],
+	        ['title' => 'Clase', 'data' => 'class.name'],
+	        ['title' => 'Nombre', 'data' => 'user.name'],
             ['title' => 'Inicio', 'data' => 'start_at'],
             ['title' => 'Fin', 'data' => 'end_at'],
             ['title' => 'Estado', 'data' => 'status'],

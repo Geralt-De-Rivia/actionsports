@@ -19,6 +19,7 @@ class CreateRoutineTable extends Migration
             $table->tinyInteger('days');
             $table->integer('difficulty');
             $table->timestamps();
+	        $table->softDeletes();
         });
     }
 

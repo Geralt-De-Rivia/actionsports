@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @SWG\Definition(
@@ -41,7 +42,9 @@ use Eloquent as Model;
 class NewModel extends Model
 {
 
-    public $table = 'news';
+	use SoftDeletes;
+
+	public $table = 'news';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';

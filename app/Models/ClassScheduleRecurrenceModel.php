@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @SWG\Definition(
@@ -41,6 +42,8 @@ use Eloquent as Model;
  */
 class ClassScheduleRecurrenceModel extends Model
 {
+	use SoftDeletes;
+
 
     public $table = 'class_schedule_recurrences';
     

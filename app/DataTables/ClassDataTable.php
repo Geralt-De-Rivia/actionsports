@@ -45,7 +45,7 @@ class ClassDataTable extends DataTable
     public function query(ClassModel $model)
     {
         return $model
-            ->with('classType')
+            ->with('class_type')
             ->newQuery();
     }
 
@@ -83,7 +83,8 @@ class ClassDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['title' => 'Nombre', 'data' => 'name'],
+	        ['title' => 'id', 'data' => 'id'],
+	        ['title' => 'Nombre', 'data' => 'name'],
             ['title' => 'Minutos', 'data' => 'minutes'],
             ['title' => 'Estado', 'data' => 'status'],
             'reservable',

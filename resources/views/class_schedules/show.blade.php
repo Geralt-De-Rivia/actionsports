@@ -10,7 +10,6 @@
                 <div class="card-body">
                    <div class="row" style="padding-left: 20px">
                     @include('class_schedules.show_fields')
-                    <a href="{!! route('class_schedules.index') !!}" class="btn btn-default">Back</a>
                 </div>
                 </div>
             </div>

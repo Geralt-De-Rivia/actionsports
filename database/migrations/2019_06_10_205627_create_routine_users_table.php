@@ -22,6 +22,7 @@ class CreateRoutineUsersTable extends Migration
             $table->date('end_at')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
+	        $table->softDeletes();
         });
     }
 

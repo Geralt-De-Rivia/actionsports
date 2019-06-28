@@ -18,6 +18,7 @@ class CreateClientActivitiesTable extends Migration
             $table->bigInteger('activity_id')->unsigned();
             $table->bigInteger('client_id')->unsigned();
             $table->timestamps();
+	        $table->softDeletes();
         });
     }
 

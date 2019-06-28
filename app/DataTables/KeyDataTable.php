@@ -66,7 +66,8 @@ class KeyDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            [ 'data' => 'type', 'title' => 'Tipo' ],
+	        ['title' => 'id', 'data' => 'id'],
+	        [ 'data' => 'type', 'title' => 'Tipo' ],
             [ 'data' => 'label', 'title' => 'Titulo' ],
             [ 'data' => 'reference', 'title' => 'Referencia' ],
         ];

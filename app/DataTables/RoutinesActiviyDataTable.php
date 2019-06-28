@@ -96,7 +96,8 @@ class RoutinesActiviyDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['title' => 'Días', 'data' => 'day'],
+	        ['title' => 'id', 'data' => 'id'],
+	        ['title' => 'Días', 'data' => 'day'],
             ['title' => 'Actividad', 'data' => 'activity.name'],
             ['title' => 'Rutina', 'data' => 'routine.name'],
         ];

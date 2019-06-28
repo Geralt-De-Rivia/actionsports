@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @SWG\Definition(
@@ -40,6 +41,7 @@ use Eloquent as Model;
  */
 class ActivityModel extends Model
 {
+	use SoftDeletes;
 
     public $table = 'activities';
     

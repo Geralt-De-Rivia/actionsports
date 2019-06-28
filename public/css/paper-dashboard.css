@@ -6454,7 +6454,7 @@ License - nucleoapp.com/license/
   font-weight: bold;
 }
 .sidebar-wrapper{
-  overflow: hidden !important;
+  overflow-y: auto !important;
   background-color: rgba(0,0,0,0.5) !important;
 }
 
