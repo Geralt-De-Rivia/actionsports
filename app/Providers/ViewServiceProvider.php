@@ -33,7 +33,9 @@ class ViewServiceProvider extends ServiceProvider
                 'classes.create',
                 'classes.edit',
                 'activities.create',
-                'activities.edit'
+                'activities.edit',
+                'news.create',
+                'news.edit'
             ],
             'App\Http\ViewComposers\FieldComposer'
         );

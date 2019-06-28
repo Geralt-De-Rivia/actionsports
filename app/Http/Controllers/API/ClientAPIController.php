@@ -5,9 +5,12 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreateClientAPIRequest;
 use App\Http\Requests\API\UpdateClientAPIRequest;
 use App\Models\ClientModel;
+use App\Notifications\OrderStatusNotification;
+use App\Notifications\RememberPassword;
 use App\Repositories\ClientRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Notification;
 use Response;
 
 /**
@@ -126,5 +129,19 @@ class ClientAPIController extends AppBaseController
 
 		return $this->sendResponse($client->toArray(), 'Client saved successfully');
 	}
+
+	public function remember(Request $request){
+
+	    $input = $request->all();
+
+	    $client = ClientModel::where('email','=', $input['email'])->get()->first();
+
+        Notification::route('mail', $client->email)
+            ->notify(new RememberPassword($client->code));
+
+        return $this->sendResponse(true, 'Client notify successfully');
+
+
+    }
 
 }
