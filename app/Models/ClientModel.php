@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -152,6 +153,15 @@ class ClientModel extends Model
         'last_name' => 'required',
         'email' => 'required',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function getBirthDateAttribute()
+    {
+        return Carbon::parse($this->attributes['birth_date'])->format('Y-m-d');
+    }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
