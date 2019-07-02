@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\RoutineDataTable;
-use App\Http\Controllers\AppBaseController;
-use App\Http\Requests;
-use App\Http\Requests\CreateRoutineRequest;
-use App\Http\Requests\UpdateRoutineRequest;
-use App\Models\ActivityModel;
-use App\Repositories\RoutineRepository;
 use Flash;
 use Response;
+use App\Http\Requests;
+use App\Models\ActivityModel;
+use App\DataTables\RoutineDataTable;
+use App\Repositories\RoutineRepository;
+use App\Http\Controllers\AppBaseController;
+use App\Http\Requests\CreateRoutineRequest;
+use App\Http\Requests\UpdateRoutineRequest;
+use App\Infrastructure\Repositories\Criterias\WithRelationshipsCriteria;
 
 class RoutineController extends AppBaseController
 {
@@ -57,8 +58,6 @@ class RoutineController extends AppBaseController
     {
         $input = $request->all();
 
-        //dd($request->all());
-
         $routine = $this->routineRepository->create($input);
 
         Flash::success('Rutina Guardada Satisfactoriamente.');
@@ -96,13 +95,18 @@ class RoutineController extends AppBaseController
     public function edit($id)
     {
         $activitys = ActivityModel::all()->pluck('name','id');
+
+        $this->routineRepository->pushCriteria(new WithRelationshipsCriteria(['routineActivities']));
         $routine = $this->routineRepository->find($id);
+
 
         if (empty($routine)) {
             Flash::error('RoutineModel not found');
 
             return redirect(route('routines.index'));
         }
+
+        //return Response::json([$routine,$routine->routineActivities]);
 
         return view('routines.edit')->with('routine', $routine)
             ->with('activitys', $activitys);

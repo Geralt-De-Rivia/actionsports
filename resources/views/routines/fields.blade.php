@@ -1,4 +1,7 @@
 <!-- Name Field -->
+
+
+
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Nombre:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
@@ -25,7 +28,11 @@
     {!! Form::number('difficulty', null, ['class' => 'form-control']) !!}
 </div>
 
-
+@if(isset($routine->routineActivities))
+    <script type="application/javascript">
+        window.recurrences = @json($routine->routineActivities)
+    </script>
+@endif
 
 <div class="col-sm-12" id="recurrenceScheduleClass">
 
@@ -50,7 +57,7 @@
 
         <tr v-for="(item, index) in recurrences">
             <td>
-                <select class="form-control" v-bind:name="'day[]" v-model="item.day">
+                <select class="form-control" v-bind:name="'day_' + (index+1)" v-model="item.day">
                     <option selected hidden>Seleccione</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -62,7 +69,14 @@
                 </select>
             </td>
             <td>
-               {!! Form::select('activity_id',$activitys ?? [], $class->id ?? null,['class'=>'form-control','name'=>"Ejercicio[]"]) !!} 
+                <select class="form-control" v-bind:name="'activity_' + (index+1)" v-model="item.day">
+                    <option selected hidden>Seleccione</option>
+
+                    @foreach($activitys ?? [] as $key => $value)
+                        <option value="{{$key}}">{{$value}}</option>
+                    @endforeach
+                </select>
+               {{-- {!! Form::select('activity_id',$activitys ?? [], $class->id ?? null,['class'=>'form-control','name'=>"exercise[]"]) !!}  --}}
                {{--  <input type="time" class="form-control" v-bind:name="'hour_' + (index+1)" v-model="item.start_time"> --}}              
             </td>
         </tr>
