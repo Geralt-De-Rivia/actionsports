@@ -34,7 +34,7 @@
     </script>
 @endif
 
-<div class="col-sm-12" id="recurrenceScheduleClass">
+<div class="col-sm-12" id="recurrenceRoutines">
 
     <h5 align="center">Ejercicios</h5>
     <div class="row">
@@ -69,9 +69,8 @@
                 </select>
             </td>
             <td>
-                <select class="form-control" v-bind:name="'activity_' + (index+1)" v-model="item.day">
+                <select class="form-control" v-bind:name="'activity_' + (index+1)" v-model="item.activity_id">
                     <option selected hidden>Seleccione</option>
-
                     @foreach($activitys ?? [] as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>
                     @endforeach

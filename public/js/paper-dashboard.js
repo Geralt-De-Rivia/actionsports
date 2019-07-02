@@ -218,3 +218,25 @@ var createScheduleClass = new Vue({
     }
   }
 });
+
+var createRouties = new Vue({
+  el: '#recurrenceRoutines',
+  data: {
+    recurrences:  [],
+    message: 'Hello Vue!'
+  },
+  mounted() {
+    if(window.recurrences){
+      this.recurrences = window.recurrences;
+      console.log(this.recurrences);
+    }
+  },
+  methods: {
+    addDay(){
+      this.recurrences.push({
+        day: null,
+        activity_id: null
+      })
+    }
+  }
+});
