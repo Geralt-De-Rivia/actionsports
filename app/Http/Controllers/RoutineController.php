@@ -74,6 +74,8 @@ class RoutineController extends AppBaseController
      */
     public function show($id)
     {
+        $this->routineRepository
+            ->pushCriteria(new WithRelationshipsCriteria(['routineActivities']));
         $routine = $this->routineRepository->find($id);
 
         if (empty($routine)) {

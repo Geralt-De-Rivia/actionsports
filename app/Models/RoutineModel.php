@@ -90,7 +90,8 @@ class RoutineModel extends Model
      **/
     public function routineActivities()
     {
-        return $this->hasMany(\App\Models\RoutineActivityModel::class,'routine_id','id');
+        return $this->hasMany(\App\Models\RoutineActivityModel::class,'routine_id','id')
+            ->with('Activity');
     }
 
     /**

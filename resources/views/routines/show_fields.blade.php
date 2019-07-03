@@ -57,14 +57,13 @@
         </thead>
         <tbody class="duesTbody">
 
-        @foreach($routine->routineActivities as $recurrence)
-
+        @foreach($routine->routineActivities as $key => $recurrence)
         <tr v-for="(item, index) in recurrences">
                 <td>
                     <span>{{$recurrence->day}}</span>
                 </td>
                 <td>
-                    <span>{{$recurrence->activity_id}}</span>
+                    <span>{{$recurrence->Activity->name}}</span>
                 </td>
             </tr>
         @endforeach
