@@ -223,12 +223,16 @@ var createRouties = new Vue({
   el: '#recurrenceRoutines',
   data: {
     recurrences:  [],
-    message: 'Hello Vue!'
+    message: 'Hello Vue!',
+    daySelected: null,
+    days: []
   },
   mounted() {
     if(window.recurrences){
       this.recurrences = window.recurrences;
-      console.log(this.recurrences);
+    }
+    if(window.days){
+      this.daySelected = window.days;
     }
   },
   methods: {
@@ -237,6 +241,16 @@ var createRouties = new Vue({
         day: null,
         activity_id: null
       })
+    }
+  },
+  watch: {
+    daySelected(newValue, oldValue){
+      if(newValue){
+        this.days= [];
+        for(let x = 1;x <= newValue; x++){
+          this.days.push(x);
+        }
+      }
     }
   }
 });
