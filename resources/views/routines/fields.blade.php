@@ -1,24 +1,26 @@
-<!-- Name Field -->
-
-
 
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Nombre:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
-
+@if(isset($routine->days))
+    <script type="application/javascript">
+        window.days = parseInt('{{$routine->days}}');
+    </script>
+@endif
 <div class="form-group col-sm-6">
     {!! Form::label('days', 'Días por semana:') !!}
-    {!! Form::select('days',[
-    	'1' => '1',
-    	'2' => '2',
-    	'3' => '3',
-    	'4' => '4',
-    	'5' => '5',
-    	'6' => '6',
-    	'7' => '7',
-    ], null,['class'=>'form-control']) !!}
+    <select class="form-control" name="days" v-model="daySelected" required>
+        <option selected hidden>Seleccione</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+    </select>
 </div>
 
 
@@ -34,7 +36,7 @@
     </script>
 @endif
 
-<div class="col-sm-12" id="recurrenceRoutines">
+<div class="col-sm-12" >
 
     <h5 align="center">Ejercicios</h5>
     <div class="row">
@@ -57,15 +59,9 @@
 
         <tr v-for="(item, index) in recurrences">
             <td>
-                <select class="form-control" v-bind:name="'day_' + (index+1)" v-model="item.day">
+                <select class="form-control" v-bind:name="'day_' + (index+1)" v-model="item.day" required>
                     <option selected hidden>Seleccione</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
+                    <option v-bind:value="day" v-for="day in days" v-html="day"></option>
                 </select>
             </td>
             <td>
@@ -76,7 +72,7 @@
                     @endforeach
                 </select>
                {{-- {!! Form::select('activity_id',$activitys ?? [], $class->id ?? null,['class'=>'form-control','name'=>"exercise[]"]) !!}  --}}
-               {{--  <input type="time" class="form-control" v-bind:name="'hour_' + (index+1)" v-model="item.start_time"> --}}              
+               {{--  <input type="time" class="form-control" v-bind:name="'hour_' + (index+1)" v-model="item.start_time"> --}}
             </td>
         </tr>
         </tbody>

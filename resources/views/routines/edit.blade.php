@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-body">
                     {!! Form::model($routine, ['route' => ['routines.update', $routine->id], 'method' => 'patch']) !!}
-                    <div class="row">
+                    <div class="row" id="recurrenceRoutines">
                         @include('routines.fields')
                     </div>
                     {!! Form::close() !!}

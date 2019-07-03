@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'routines.store']) !!}
-                    <div class="row">
+                    <div class="row" id="recurrenceRoutines">
                         @include('routines.fields')
                     </div>
                     {!! Form::close() !!}
