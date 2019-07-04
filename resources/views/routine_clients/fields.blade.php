@@ -45,7 +45,7 @@
     {!! Form::label('status', 'Status:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('status', 0) !!}
-        {!! Form::checkbox('status', '1', null) !!} 1
+        {!! Form::checkbox('status', '1', null) !!}
     </label>
 </div>
 

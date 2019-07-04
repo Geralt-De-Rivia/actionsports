@@ -27,7 +27,7 @@ class ClassReservationDataTable extends DataTable {
 			                 return ClassesService::days()[ $item->day ];
 		                 } )->editColumn( 'status', function ( $item ) {
 		                 	if($item->status == 'pending'){
-		                 		return 'Pendiente';
+		                 		return 'Inscrita';
 		                    }else if($item->status == 'canceled'){
 			                    return 'Cancelada';
 		                    }else if($item->status == 'finished'){
@@ -47,7 +47,8 @@ class ClassReservationDataTable extends DataTable {
 	 * @return \Illuminate\Database\Eloquent\Builder
 	 */
 	public function query( ClassReservationModel $model ) {
-		return $model->with( 'client' )->with( 'class_schedule' )->newQuery();
+		return $model->with( 'client' )
+            ->with( 'class_schedule' )->newQuery();
 	}
 
 	/**

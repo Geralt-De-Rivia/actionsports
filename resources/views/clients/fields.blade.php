@@ -48,7 +48,7 @@
 
 <!-- Client Status Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('client_status_id', 'Estado Cliente Id:') !!}
+    {!! Form::label('client_status_id', 'Estado Cliente:') !!}
     {!! Form::select('client_status_id',$status ?? [], $clients->client_status_id ?? null,['class'=>'form-control']) !!}  
 </div>
 

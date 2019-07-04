@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Scopes\ClassScheduleScope;
+use App\Scopes\UserScope;
 use Carbon\Carbon;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -86,6 +88,11 @@ class ClassScheduleModel extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new ClassScheduleScope());
+    }
 
 
     public $fillable = [

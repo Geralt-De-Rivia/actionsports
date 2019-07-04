@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\ClientModel;
+use App\Models\RoutineClientModel;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -18,7 +19,14 @@ class ClientDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'clients.datatables_actions');
+        return $dataTable->addColumn('action', 'clients.datatables_actions')
+            ->addColumn('client_status_name', function (ClientModel $model) {
+                if (!empty($model->client_status)) {
+                    return $model->client_status->name;
+                } else {
+                    return '';
+                }
+            });
     }
 
     /**
@@ -30,7 +38,6 @@ class ClientDataTable extends DataTable
     public function query(ClientModel $model)
     {
         return $model
-            ->with('client_status')
             ->newQuery();
     }
 
@@ -68,7 +75,7 @@ class ClientDataTable extends DataTable
     protected function getColumns()
     {
         return [
-	        ['title' => 'id', 'data' => 'id'],
+	        ['title' => '#', 'data' => 'id'],
 	        'dni',
             ['title' => 'Nombre', 'data' => 'name'],
             ['title' => 'Apellido', 'data' => 'last_name'],
@@ -77,7 +84,7 @@ class ClientDataTable extends DataTable
             ['title' => 'Código', 'data' => 'code'],
             //'image_url',
             //['title' => 'Número Membresia', 'data' => 'membership_number'],
-            ['title' => 'Estado Cliente', 'data' => 'client_status.name', 'searchable' => false]
+            ['title' => 'Estado Cliente', 'data' => 'client_status_name', 'searchable' => false]
             //'birth_date',
             //'email_verified_at',
             //'password'

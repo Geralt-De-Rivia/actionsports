@@ -3,8 +3,8 @@
 namespace App\DataTables;
 
 use App\Models\ClassScheduleModel;
-use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Services\DataTable;
 
 class ClassScheduleDataTable extends DataTable
 {
@@ -20,15 +20,15 @@ class ClassScheduleDataTable extends DataTable
 
         return $dataTable
             ->addColumn('action', 'class_schedules.datatables_actions')
-            ->editColumn('status', function($classSchedule) {
-                $status = ($classSchedule->status ==1)
+            ->editColumn('status', function ($classSchedule) {
+                $status = ($classSchedule->status == 1)
                     ? 'Activo'
                     : 'Inactivo';
                 return $status;
             })
-	        ->editColumn('id', function($classSchedule) {
-		        return $classSchedule->id;
-	        });
+            ->editColumn('id', function ($classSchedule) {
+                return $classSchedule->id;
+            });
     }
 
     /**
@@ -40,9 +40,10 @@ class ClassScheduleDataTable extends DataTable
     public function query(ClassScheduleModel $model)
     {
         return $model
-        ->with('class')
-        ->with('user')
-        ->newQuery();
+            ->with('class:id,name')
+            ->with('user')
+            ->select('class_schedules.id as table_id', 'class_schedules.*')
+            ->newQuery();
     }
 
     /**
@@ -57,11 +58,11 @@ class ClassScheduleDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'language' => [ 'url' => url( '/lang/Spanish.json' ) ],
-                'dom'       => 'Bfrtip',
+                'language' => ['url' => url('/lang/Spanish.json')],
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -79,11 +80,11 @@ class ClassScheduleDataTable extends DataTable
     protected function getColumns()
     {
         return [
-	        ['title' => 'id', 'data' => 'id'],
+            ['title' => 'id', 'data' => 'table_id'],
             ['title' => 'Cantidad Min', 'data' => 'quota_min'],
             ['title' => 'Cantidad Max', 'data' => 'quota_max'],
-	        ['title' => 'Clase', 'data' => 'class.name'],
-	        ['title' => 'Nombre', 'data' => 'user.name'],
+            ['title' => 'Clase', 'data' => 'class.name'],
+            ['title' => 'Instructor', 'data' => 'user.name'],
             ['title' => 'Inicio', 'data' => 'start_at'],
             ['title' => 'Fin', 'data' => 'end_at'],
             ['title' => 'Estado', 'data' => 'status'],

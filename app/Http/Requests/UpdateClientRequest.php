@@ -25,6 +25,8 @@ class UpdateClientRequest extends FormRequest
      */
     public function rules()
     {
-        return ClientModel::$rules;
+        return [
+
+        ];
     }
 }

@@ -16,7 +16,7 @@
     <div class="form-check">
         <label class="form-check-label">
             {!! Form::hidden('status', 0) !!}
-            {!! Form::checkbox('status', '1', null) !!} 1
+            {!! Form::checkbox('status', '1', null) !!}
             <span class="form-check-sign">
             <span class="check"></span>
           </span>
@@ -30,7 +30,7 @@
     <div class="form-check">
         <label class="form-check-label">
             {!! Form::hidden('reservable', 0) !!}
-            {!! Form::checkbox('reservable', '1', null) !!} 1
+            {!! Form::checkbox('reservable', '1', null) !!}
             <span class="form-check-sign">
             <span class="check"></span>
           </span>

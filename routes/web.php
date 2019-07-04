@@ -11,36 +11,35 @@
 |
 */
 
-
-
-
-
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', 'HomeController@index');
 
-Route::resource('activities', 'ActivityController');
+    Route::resource('activities', 'ActivityController');
 
-Route::resource('classes', 'ClassController');
+    Route::resource('classes', 'ClassController');
 
-Route::resource('clients', 'ClientController');
+    Route::resource('clients', 'ClientController');
 
-Route::resource('machines', 'MachineController');
+    Route::resource('machines', 'MachineController');
 
-Route::resource('news', 'NewController');
+    Route::resource('news', 'NewController');
 
-Route::resource('routines', 'RoutineController');
+    Route::resource('routines', 'RoutineController');
 
-Route::resource('users', 'UserController');
+    Route::resource('users', 'UserController');
 
-Route::resource('classTypes', 'ClassTypeController');
+    Route::resource('classTypes', 'ClassTypeController');
 
-Route::resource('class_schedules', 'ClassScheduleController');
+    Route::resource('class_schedules', 'ClassScheduleController');
 
-Route::resource('keys', 'KeyController');
+    Route::resource('keys', 'KeyController');
 
-Route::resource('routineClients', 'RoutineClientController');
+    Route::resource('routineClients', 'RoutineClientController');
 
-Route::resource('routines_activity', 'RoutinesActivityController');
+    Route::resource('routines_activity', 'RoutinesActivityController');
 
-Route::resource('classReservations', 'ClassReservationController');
+    Route::resource('classReservations', 'ClassReservationController');
+});
+

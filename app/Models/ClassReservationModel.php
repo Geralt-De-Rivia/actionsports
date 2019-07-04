@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Scopes\ClassReservationScope;
+use App\Scopes\UserScope;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -60,12 +62,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ClassReservationModel extends Model
 {
 
-	use SoftDeletes;
+    use SoftDeletes;
 
-	public $table = 'class_reservations';
-    
+    public $table = 'class_reservations';
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new ClassReservationScope());
+    }
 
 
 

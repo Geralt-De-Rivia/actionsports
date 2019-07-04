@@ -23,8 +23,6 @@ class ClassScheduleController extends AppBaseController
     public function __construct(ClassScheduleRepository $classScheduleRepo)
     {
         $this->classScheduleRepository = $classScheduleRepo;
-        View::share('classes', ClassModel::all()->pluck('name','id'));
-        View::share('teachers', UserModel::where('role_id','=',2)->get()->pluck('name','id'));
     }
 
     /**
@@ -45,6 +43,9 @@ class ClassScheduleController extends AppBaseController
      */
     public function create()
     {
+        View::share('classes', ClassModel::all()->pluck('name','id'));
+        View::share('teachers', UserModel::where('role_id','=',2)->get()->pluck('name','id'));
+
         return view('class_schedules.create');
     }
 
@@ -95,6 +96,9 @@ class ClassScheduleController extends AppBaseController
      */
     public function edit($id)
     {
+        View::share('classes', ClassModel::all()->pluck('name','id'));
+        View::share('teachers', UserModel::where('role_id','=',2)->get()->pluck('name','id'));
+
         $this->classScheduleRepository->pushCriteria(new WithRelationshipsCriteria(['classScheduleRecurrences']));
 
         $classSchedule = $this->classScheduleRepository->find($id);

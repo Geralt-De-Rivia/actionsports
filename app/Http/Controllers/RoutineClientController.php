@@ -23,14 +23,6 @@ class RoutineClientController extends AppBaseController
     {
         $this->routineClientRepository = $routineClientRepo;
 
-        $routines = RoutineModel::all()->pluck('name','id');
-
-        $teachers = UserModel::all()->pluck('name','id');
-
-        View::share('routines', $routines);
-
-        View::share('teachers', $teachers);
-
     }
 
     /**
@@ -51,6 +43,14 @@ class RoutineClientController extends AppBaseController
      */
     public function create()
     {
+        $routines = RoutineModel::all()->pluck('name','id');
+
+        $teachers = UserModel::all()->pluck('name','id');
+
+        View::share('routines', $routines);
+
+        View::share('teachers', $teachers);
+
         return view('routine_clients.create');
     }
 
@@ -101,6 +101,14 @@ class RoutineClientController extends AppBaseController
      */
     public function edit($id)
     {
+        $routines = RoutineModel::all()->pluck('name','id');
+
+        $teachers = UserModel::all()->pluck('name','id');
+
+        View::share('routines', $routines);
+
+        View::share('teachers', $teachers);
+
         $routineClient = $this->routineClientRepository->find($id);
 
         if (empty($routineClient)) {

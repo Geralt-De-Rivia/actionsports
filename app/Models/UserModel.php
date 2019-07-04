@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Scopes\RequestScope;
+use App\Scopes\UserScope;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -75,6 +77,13 @@ class UserModel extends Model
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new UserScope());
+    }
 
     /**
      * The attributes that should be hidden for arrays.

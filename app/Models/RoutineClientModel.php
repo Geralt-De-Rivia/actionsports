@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Scopes\ClassScheduleScope;
+use App\Scopes\RoutineClientScope;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -74,7 +76,11 @@ class RoutineClientModel extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new RoutineClientScope());
+    }
 
     public $fillable = [
         'routine_id',
@@ -96,8 +102,6 @@ class RoutineClientModel extends Model
         'routine_id' => 'integer',
         'user_id' => 'integer',
         'client_id' => 'integer',
-        'start_at' => 'date',
-        'end_at' => 'date',
         'status' => 'boolean',
         'requested_days' => 'integer'
     ];

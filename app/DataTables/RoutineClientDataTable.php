@@ -32,7 +32,27 @@ class RoutineClientDataTable extends DataTable
                 } else {
                     return '';
                 }
-            });
+            })
+            ->addColumn('client_name', function (RoutineClientModel $model) {
+                if (!empty($model->client)) {
+                    return $model->client->name;
+                } else {
+                    return '';
+                }
+            })
+            ->addColumn('client_membership_number', function (RoutineClientModel $model) {
+                if (!empty($model->client)) {
+                    return $model->client->membership_number;
+                } else {
+                    return '';
+                }
+            } )->editColumn( 'status', function ( $item ) {
+                if($item->status == 1){
+                    return 'Activa';
+                }else{
+                    return 'Inactiva';
+                }});
+
     }
 
     /**
@@ -46,6 +66,7 @@ class RoutineClientDataTable extends DataTable
         return $model
             ->with('client')
             ->with('user')
+            ->select('routine_clients.id as table_id', 'routine_clients.*')
             ->newQuery();
     }
 
@@ -83,14 +104,14 @@ class RoutineClientDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['title' => 'Id', 'data' => 'id'],
+            ['title' => 'Id', 'data' => 'table_id'],
             ['title' => 'Rutina', 'data' => 'routine_name'],
             ['title' => 'Instructor', 'data' => 'teacher_name'],
-            ['title' => 'Nombre Cliente', 'data' => 'client.name'],
-            ['title' => '# Socio cliente', 'data' => 'client.membership_number'],
+            ['title' => 'Nombre Cliente', 'data' => 'client_name'],
+            ['title' => '# Socio cliente', 'data' => 'client_membership_number'],
             ['title' => 'Fecha de inicio', 'data' => 'start_at'],
             ['title' => 'Fecha de fin', 'data' => 'end_at'],
-            ['title' => 'Status', 'data' => 'status'],
+            ['title' => 'Estado', 'data' => 'status'],
             ['title' => 'Dias solicitados', 'data' => 'requested_days'],
 
         ];
